@@ -1,6 +1,6 @@
 {
-  "name": "@phx/react-native-smartprice",
-  "version": "0.0.1",
+  "name": "react-native-smartprice",
+  "version": "1.0.0",
   "description": "Prescryptive SmartPRICE component, with linked example expo project",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
