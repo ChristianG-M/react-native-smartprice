@@ -4,7 +4,7 @@ name: Node.js Package
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -18,6 +18,5 @@ jobs:
         # Defaults to the user or organization that owns the workflow file
     - run: yarn
     - run: yarn publish
-      working-directory: src
       env:
         NODE_AUTH_TOKEN: ${{ secrets.npm_token}}
