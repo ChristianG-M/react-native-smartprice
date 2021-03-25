@@ -4,25 +4,28 @@ import { View, ViewStyle, StyleSheet, Dimensions } from 'react-native';
 import { SmartpriceButton } from './buttons/smartprice-button/smartprice-button';
 import { SmartpriceModal } from './modal/smartprice-modal';
 import { smartPriceStyles } from './index.styles';
+import { IMemberInformation } from './api/smartprice-api';
 
 export interface ISmartpriceUserData {
   firstName?: string;
   lastName?: string;
   dateOfBirth?: Date;
-  deviceToken?: string
+  deviceToken?: string;
   phoneNumber?: string;
   email?: string;
 }
 export interface ISmartPriceProps {
   buttonLabel?: string;
-  onContinueFlow?: () => void;
+  onFinishFlow?: (memberInfo?: IMemberInformation) => void;
   userData?: ISmartpriceUserData;
+  getDeviceToken?: boolean;
 }
 
 export const SmartPrice: FunctionComponent<ISmartPriceProps> = ({
   buttonLabel,
-  onContinueFlow,
-  userData
+  onFinishFlow,
+  userData,
+  getDeviceToken,
 }): React.ReactElement => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [position, setPosition] = useState<ViewStyle>();
@@ -66,8 +69,9 @@ export const SmartPrice: FunctionComponent<ISmartPriceProps> = ({
         onClose={closeScreen}
         viewStyle={modalStyle}
         isOpen={isOpen}
-        onContinueFlow={onContinueFlow}
+        onFinishFlow={onFinishFlow}
         userData={userData}
+        retrieveDeviceToken={getDeviceToken}
       />
     </View>
   );

@@ -15,6 +15,10 @@ export default function App(): ReactElement {
   );
 }
 
+const onFinish = (member: any) => {
+  console.log(member);
+};
+
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#fff',

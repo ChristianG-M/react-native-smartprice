@@ -21,5 +21,7 @@
   userData={{
     deviceToken: 'valid device token',
   }}
+  onFinishFlow={onFinish}
+  getDeviceToken={false}
 />
 ```

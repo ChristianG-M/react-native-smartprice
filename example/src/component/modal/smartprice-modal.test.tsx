@@ -13,17 +13,6 @@ import { VerifyIdentityForm } from '../forms/verify-identity-form/verify-identit
 import { CreateAccountForm } from '../forms/create-account-form/create-account-form';
 import { CardForm } from '../forms/card-form/card-form';
 
-interface IStateMock {
-  flowStep?: number;
-  phone?: string;
-  currentError?: string;
-  memberInfo?: IMemberInformation;
-  errorMessage?: string;
-  token?: string;
-  code?: string;
-  isBusy?: boolean;
-}
-
 jest.mock('react', () => ({
   ...jest.requireActual<Record<string, unknown>>('react'),
   useEffect: jest.fn(),
@@ -39,10 +28,6 @@ jest.mock('react', () => ({
     };
   }),
 }));
-
-const useEffectMock = useEffect as jest.Mock;
-const useRefMock = useRef as jest.Mock;
-const useStateMock = useState as jest.Mock;
 
 jest.mock('../forms/phone-form/phone-form', () => ({
   PhoneForm: () => <div />,
@@ -61,6 +46,20 @@ jest.mock('../forms/card-form/card-form', () => ({
 }));
 
 jest.mock('react-native/Libraries/Animated/src/NativeAnimatedHelper');
+
+const useEffectMock = useEffect as jest.Mock;
+const useRefMock = useRef as jest.Mock;
+const useStateMock = useState as jest.Mock;
+interface IStateMock {
+  flowStep?: number;
+  phone?: string;
+  currentError?: string;
+  memberInfo?: IMemberInformation;
+  errorMessage?: string;
+  token?: string;
+  code?: string;
+  isBusy?: boolean;
+}
 
 describe('SmartpriceModal', () => {
   beforeEach(() => {
@@ -138,7 +137,7 @@ describe('SmartpriceModal', () => {
 
     void act(() => header.props.onClose());
 
-    expect(useEffectMock).toHaveBeenCalledTimes(1);
+    expect(useEffectMock).toHaveBeenCalledTimes(2);
     expect(useEffectMock.mock.calls[0][1]).toEqual([true]);
   });
 

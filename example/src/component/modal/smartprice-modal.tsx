@@ -17,7 +17,6 @@ import { PhoneForm } from '../forms/phone-form/phone-form';
 import { VerifyIdentityForm } from '../forms/verify-identity-form/verify-identity-form';
 import { CardForm } from '../forms/card-form/card-form';
 import { CreateAccountForm } from '../forms/create-account-form/create-account-form';
-import '@expo/match-media';
 import {
   getDeviceToken,
   getMemberInformation,
@@ -38,16 +37,18 @@ export interface ISmartpriceModalProps {
   onClose: () => void;
   isOpen: boolean;
   onMemberInfo?: (info: string) => void;
-  onContinueFlow?: () => void;
+  onFinishFlow?: (memberInfo?: IMemberInformation) => void;
   userData?: ISmartpriceUserData;
+  retrieveDeviceToken?: boolean;
 }
 
 export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
   viewStyle,
   onClose,
   isOpen,
-  onContinueFlow,
+  onFinishFlow,
   userData,
+  retrieveDeviceToken,
 }): React.ReactElement => {
   const deviceHeight = Dimensions.get('screen').height;
 
@@ -81,7 +82,10 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
           const memberInformation = response.data as IMemberInformation;
           if (memberInformation.memberId !== undefined) {
             setIsBusy(false);
-            setMemberInfo(memberInformation);
+            setMemberInfo({
+              ...memberInformation,
+              deviceToken: retrieveDeviceToken ? deviceToken : '',
+            });
             setFlowStep(4);
           }
         })
@@ -137,7 +141,10 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
                       .then((info: IMemberInfoResponse) => {
                         const memberInformation = info.data as IMemberInformation;
                         if (memberInformation.memberId !== undefined) {
-                          setMemberInfo(memberInformation);
+                          setMemberInfo({
+                            ...memberInformation,
+                            deviceToken: retrieveDeviceToken ? deviceToken : '',
+                          });
                           setIsBusy(false);
                           setFlowStep(4);
                         }
@@ -245,9 +252,9 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
     }
   };
 
-  const onContinueFlowDefined = () => {
-    if (onContinueFlow) {
-      onContinueFlow();
+  const onContinueFlowDefined = (memberInfo?: IMemberInformation) => {
+    if (onFinishFlow) {
+      onFinishFlow(memberInfo);
     } else {
       onCloseModal();
     }

@@ -10,7 +10,7 @@ import { IMemberInformation } from '../../api/smartprice-api';
 export interface ISmartPriceModalProps {
   viewStyle?: StyleProp<ViewStyle>;
   memberInfo?: IMemberInformation;
-  onContinue?: () => void;
+  onContinue?: (memberInfo?: IMemberInformation) => void;
 }
 
 export const CardForm: FunctionComponent<ISmartPriceModalProps> = ({
@@ -20,7 +20,11 @@ export const CardForm: FunctionComponent<ISmartPriceModalProps> = ({
 }): React.ReactElement => {
   const onNextPressed = () => {
     if (onContinue) {
-      onContinue();
+      if (memberInfo) {
+        onContinue(memberInfo);
+      } else {
+        onContinue();
+      }
     }
   };
 

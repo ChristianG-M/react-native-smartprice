@@ -18,7 +18,7 @@ export interface ICreateAccountFormStyles {
 }
 
 const biggerVerticalMarginStyle: ViewStyle = {
-  marginTop: VerticalMobile.Bigger,
+  marginTop: VerticalMobile.Big,
   marginBottom: VerticalMobile.Medium,
 };
 

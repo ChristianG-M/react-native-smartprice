@@ -112,21 +112,21 @@ describe('PhoneForm', () => {
     expect(phoneInput.props.phoneNumber).toEqual('');
     expect(phoneInput.props.errorMessage).toEqual(mockErrorMessage);
 
-    const checkboxContainer = mainContainer.props.children[3];
-    expect(checkboxContainer.type).toEqual(View);
-    expect(checkboxContainer.props.style).toEqual(
-      phoneFormStyles.checkboxMarginStyle
-    );
-    expect(checkboxContainer.props.children.type).toEqual(Checkbox);
+    // const checkboxContainer = mainContainer.props.children[3];
+    // expect(checkboxContainer.type).toEqual(View);
+    // expect(checkboxContainer.props.style).toEqual(
+    //   phoneFormStyles.checkboxMarginStyle
+    // );
+    // expect(checkboxContainer.props.children.type).toEqual(Checkbox);
 
-    const nextButtonContainer = mainContainer.props.children[4];
+    const nextButtonContainer = mainContainer.props.children[3];
     expect(nextButtonContainer.type).toEqual(View);
     expect(nextButtonContainer.props.style).toEqual(
       phoneFormStyles.buttonMarginStyle
     );
     expect(nextButtonContainer.props.children.type).toEqual(SmartpriceButton);
 
-    const secondParagraph = mainContainer.props.children[5];
+    const secondParagraph = mainContainer.props.children[4];
     expect(secondParagraph.type).toEqual(Text);
     expect(secondParagraph.props.style).toEqual(
       phoneFormStyles.paragraphMarginStyle
@@ -135,11 +135,11 @@ describe('PhoneForm', () => {
       'We will send you a text message to verify your identity.'
     );
 
-    const divider = mainContainer.props.children[6];
+    const divider = mainContainer.props.children[5];
     expect(divider.type).toEqual(View);
     expect(divider.props.style).toEqual(phoneFormStyles.dividerTextStyle);
 
-    const learnButton = mainContainer.props.children[7];
+    const learnButton = mainContainer.props.children[6];
     expect(learnButton.type).toEqual(SmartpriceTextButton);
     expect(learnButton.props.viewStyle).toEqual(
       phoneFormStyles.textButtonViewStyle
