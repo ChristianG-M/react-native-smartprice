@@ -64,19 +64,15 @@ and it will load their SmartPrice savings card automatically.
 **Obtain membership data when the user finishes creating the account**
 
 ```js
-const onFinish = (membershipData) => {
-  // use membershipData
-  // membershipData.carrierPCN
-  // membershipData.memberId
-  // membershipData.rxBin
-  // membershipDatarxGroup
-  // membershipData.deviceToken?
-};
-
 <SmartPrice onFinishFlow={onFinish} />;
+
+const onFinish = (membershipData) => {
+  const { carrierPCN, memberId, rxBin, rxGroup, deviceToken } = membershipData;
+  //membershipData.deviceToken? is optional
+};
 ```
 
-**I you set the getDeviceToken flag to 'true' you will get back the deviceToken so you can use it later**
+**If you set the getDeviceToken flag to 'true' you will get back the deviceToken so you can use it later**
 
 ```js
 <SmartPrice getDeviceToken={true} />
