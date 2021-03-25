@@ -5,15 +5,16 @@ import {
   View,
   StyleProp,
   ViewStyle,
-  TouchableOpacity,
   Linking,
+  Platform,
+  // TouchableOpacity,
 } from 'react-native';
 import { SmartpriceButton } from '../../buttons/smartprice-button/smartprice-button';
 import { phoneFormStyles } from './phone-form.styles';
 import { GreyScale, PurpleScale } from '../../utils/types/colors';
 import { SmartpriceTextButton } from '../../buttons/text-button/smartprice-text-button';
 import { PhoneMaskInput } from '../../inputs/mask-inputs/phone-mask-input/phone-mask-input';
-import { Checkbox } from '../../inputs/checkbox/checkbox';
+// import { Checkbox } from '../../inputs/checkbox/checkbox';
 
 export interface ISmartPriceModalProps {
   viewStyle?: StyleProp<ViewStyle>;
@@ -29,9 +30,9 @@ export const PhoneForm: FunctionComponent<ISmartPriceModalProps> = ({
   userNumber,
 }): React.ReactElement => {
   const [phoneNumber, setPhoneNumber] = useState<string>(userNumber ?? '');
-  const [isRequirementsChecked, setIsRequirementsChecked] = useState<boolean>(
-    false
-  );
+  // const [isRequirementsChecked, setIsRequirementsChecked] = useState<boolean>(
+  //   false
+  // );
 
   const onNextPressed = () => {
     if (onVerificationCodeRequest) {
@@ -39,41 +40,63 @@ export const PhoneForm: FunctionComponent<ISmartPriceModalProps> = ({
     }
   };
 
-  const onChecked = (isChecked: boolean) => {
-    return setIsRequirementsChecked(isChecked);
+  // const onChecked = (isChecked: boolean) => {
+  //   return setIsRequirementsChecked(isChecked);
+  // };
+
+  // const onSmartPriceTermsAndConditions = () => {
+  //   const url = 'https://prescryptive.com/savings-plan-terms/';
+  //   if (Platform.OS == 'web') {
+  //     window.open(url, '_blank');
+  //   } else {
+  //     Linking.openURL(url);
+  //   }
+  // };
+
+  // const onPrescryptiveTermsAndConditions = () => {
+  //   const url = 'https://prescryptive.com/terms-of-use/';
+  //   if (Platform.OS == 'web') {
+  //     window.open(url, '_blank');
+  //   } else {
+  //     Linking.openURL(url);
+  //   }
+  // };
+
+  const learnAbout = () => {
+    {
+      const url = 'https://prescryptive.com/pbm-solution/';
+      if (Platform.OS == 'web') {
+        window.open(url, '_blank');
+      } else {
+        Linking.openURL(url);
+      }
+    }
   };
-
-  const onSmartPriceTermsAndConditions = () =>
-    Linking.openURL('https://prescryptive.com/savings-plan-terms/');
-
-  const onPrescryptiveTermsAndConditions = () =>
-    Linking.openURL('https://prescryptive.com/terms-of-use/');
-
-  const learnAbout = () =>
-    Linking.openURL('https://prescryptive.com/pbm-solution/');
 
   const onPhoneNumberChange = (phone: string) => {
     setPhoneNumber(phone);
   };
 
-  const isButtonDisabled =
-    phoneNumber.length < 10 || isRequirementsChecked === false;
+  const isButtonDisabled = phoneNumber.length < 10;
 
-  const requirementsLabel = (
-    <Text style={phoneFormStyles.requirementsLabelTextStyle}>
-      I have read and agree to:
-      <TouchableOpacity onPress={onSmartPriceTermsAndConditions}>
-        <Text style={phoneFormStyles.linkTextStyle}>
-          SmartPrice Terms & Conditions
-        </Text>
-      </TouchableOpacity>
-      <TouchableOpacity onPress={onPrescryptiveTermsAndConditions}>
-        <Text style={phoneFormStyles.linkTextStyle}>
-          Prescryptive Terms & Conditions
-        </Text>
-      </TouchableOpacity>
-    </Text>
-  );
+  // const isButtonDisabled =
+  //   phoneNumber.length < 10 || isRequirementsChecked === false;
+
+  // const requirementsLabel = (
+  //   <Text style={phoneFormStyles.requirementsLabelTextStyle}>
+  //     I have read and agree to:
+  //     <TouchableOpacity onPress={onSmartPriceTermsAndConditions}>
+  //       <Text style={phoneFormStyles.linkTextStyle}>
+  //         SmartPrice Terms & Conditions
+  //       </Text>
+  //     </TouchableOpacity>
+  //     <TouchableOpacity onPress={onPrescryptiveTermsAndConditions}>
+  //       <Text style={phoneFormStyles.linkTextStyle}>
+  //         Prescryptive Terms & Conditions
+  //       </Text>
+  //     </TouchableOpacity>
+  //   </Text>
+  // );
 
   useEffect(() => {
     if (userNumber && userNumber === '') {
@@ -98,13 +121,13 @@ export const PhoneForm: FunctionComponent<ISmartPriceModalProps> = ({
         errorMessage={errorMessage}
       />
 
-      <View style={phoneFormStyles.checkboxMarginStyle}>
+      {/* <View style={phoneFormStyles.checkboxMarginStyle}>
         <Checkbox
           onChange={onChecked}
           label={requirementsLabel}
           checked={isRequirementsChecked}
         />
-      </View>
+      </View> */}
 
       <View style={phoneFormStyles.buttonMarginStyle}>
         <SmartpriceButton

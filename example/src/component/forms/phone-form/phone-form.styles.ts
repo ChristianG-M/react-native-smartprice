@@ -17,6 +17,15 @@ export interface IPhoneFormStyles {
 
 const linkTextStyle: TextStyle = { color: BlueScale.dark };
 
+const checkboxMarginStyle: ViewStyle = { marginTop: VerticalMobile.Regular };
+
+const requirementsLabelTextStyle: TextStyle = {
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  fontSize: 16,
+  lineHeight: 28,
+};
+
 const titleContainerStyle: TextStyle = {
   color: GreyScale.black,
   fontSize: 22,
@@ -34,8 +43,6 @@ const buttonMarginStyle: ViewStyle = {
   marginTop: VerticalMobile.Medium,
 };
 
-const checkboxMarginStyle: ViewStyle = { marginTop: VerticalMobile.Regular };
-
 const textButtonTextStyle: TextStyle = {
   color: PurpleScale.regular,
   fontSize: 16,
@@ -45,13 +52,6 @@ const textButtonTextStyle: TextStyle = {
 const textButtonViewStyle: ViewStyle = {
   alignSelf: 'flex-start',
   marginVertical: VerticalMobile.Big,
-};
-
-const requirementsLabelTextStyle: TextStyle = {
-  flexDirection: 'row',
-  flexWrap: 'wrap',
-  fontSize: 16,
-  lineHeight: 28,
 };
 
 const dividerTextStyle: TextStyle = {

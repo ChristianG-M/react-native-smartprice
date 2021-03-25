@@ -4,6 +4,7 @@ import { GreyScale, BlueScale } from '../../utils/types/colors';
 import { HorizontalMobile, VerticalMobile } from '../../utils/types/spacing';
 
 export interface ICreateAccountFormStyles {
+  checkboxMarginStyle: ViewStyle;
   containerViewStyle: ViewStyle;
   biggerVerticalMarginStyle: ViewStyle;
   titleContainerStyle: TextStyle;
@@ -43,6 +44,8 @@ const requirementsLabelTextStyle: TextStyle = {
   lineHeight: 28,
 };
 
+const checkboxMarginStyle: ViewStyle = { marginTop: 0 };
+
 const containerViewStyle: ViewStyle = {
   // paddingTop: VerticalMobile.Double,
 };
@@ -62,6 +65,7 @@ const errorTextStyle: TextStyle = {
 };
 
 export const createAccountFormStyles: ICreateAccountFormStyles = {
+  checkboxMarginStyle,
   containerViewStyle,
   errorTextStyle,
   biggerVerticalMarginStyle,

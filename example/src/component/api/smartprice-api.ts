@@ -115,7 +115,7 @@ export const isRegisteredUser = (
         resolve(resp.data);
       })
       .catch((error: IApiResponseError) => {
-        reject(error.response.data.details.errors);
+        reject(error.response.data);
       });
   });
 };

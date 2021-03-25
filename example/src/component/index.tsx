@@ -5,14 +5,24 @@ import { SmartpriceButton } from './buttons/smartprice-button/smartprice-button'
 import { SmartpriceModal } from './modal/smartprice-modal';
 import { smartPriceStyles } from './index.styles';
 
+export interface ISmartpriceUserData {
+  firstName?: string;
+  lastName?: string;
+  dateOfBirth?: Date;
+  deviceToken?: string
+  phoneNumber?: string;
+  email?: string;
+}
 export interface ISmartPriceProps {
   buttonLabel?: string;
   onContinueFlow?: () => void;
+  userData?: ISmartpriceUserData;
 }
 
 export const SmartPrice: FunctionComponent<ISmartPriceProps> = ({
   buttonLabel,
   onContinueFlow,
+  userData
 }): React.ReactElement => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [position, setPosition] = useState<ViewStyle>();
@@ -57,6 +67,7 @@ export const SmartPrice: FunctionComponent<ISmartPriceProps> = ({
         viewStyle={modalStyle}
         isOpen={isOpen}
         onContinueFlow={onContinueFlow}
+        userData={userData}
       />
     </View>
   );

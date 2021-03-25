@@ -9,7 +9,7 @@ import {
 } from './create-account-form.styles';
 
 const biggerVerticalMarginStyle: ViewStyle = {
-  marginTop: VerticalMobile.Bigger,
+  marginTop: VerticalMobile.Big,
   marginBottom: VerticalMobile.Medium,
 };
 
@@ -35,6 +35,8 @@ const requirementsLabelTextStyle: TextStyle = {
   lineHeight: 28,
 };
 
+const checkboxMarginStyle: ViewStyle = { marginTop: 0 };
+
 const containerViewStyle: ViewStyle = {
   // paddingTop: VerticalMobile.Double,
 };
@@ -56,6 +58,7 @@ const errorTextStyle: TextStyle = {
 describe('createAccountFormStyles', () => {
   it('has expected default styles', () => {
     const mockCreateAccountFormStyles: ICreateAccountFormStyles = {
+      checkboxMarginStyle,
       containerViewStyle,
       errorTextStyle,
       biggerVerticalMarginStyle,

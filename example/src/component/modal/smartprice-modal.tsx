@@ -31,6 +31,7 @@ import {
   sendVerificationCodeRequest,
 } from '../api/smartprice-api';
 import { PurpleScale } from '../utils/types/colors';
+import { ISmartpriceUserData } from '..';
 
 export interface ISmartpriceModalProps {
   viewStyle?: StyleProp<ViewStyle>;
@@ -38,6 +39,7 @@ export interface ISmartpriceModalProps {
   isOpen: boolean;
   onMemberInfo?: (info: string) => void;
   onContinueFlow?: () => void;
+  userData?: ISmartpriceUserData;
 }
 
 export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
@@ -45,13 +47,27 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
   onClose,
   isOpen,
   onContinueFlow,
+  userData,
 }): React.ReactElement => {
   const deviceHeight = Dimensions.get('screen').height;
 
+  const prefilledPhoneNumber = () => {
+    const number = userData?.phoneNumber ?? '';
+    if (number.length < 10) {
+      return '';
+    } else {
+      return number;
+    }
+  };
+
   const [flowStep, setFlowStep] = useState<number>(1);
-  const [registerPhoneNumber, setRegisterPhoneNumber] = useState<string>('');
+  const [registerPhoneNumber, setRegisterPhoneNumber] = useState<string>(
+    prefilledPhoneNumber()
+  );
   const [memberInfo, setMemberInfo] = useState<IMemberInformation>();
-  const [deviceToken, setDeviceToken] = useState<string>('');
+  const [deviceToken, setDeviceToken] = useState<string>(
+    userData?.deviceToken ?? ''
+  );
   const [verificationCode, setVerificationCode] = useState<string>('');
   const [verifyErrorMessage, setVerifyErrorMessage] = useState<string>('');
   const [currentError, setCurrentError] = useState<string>('');
@@ -153,6 +169,40 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
     }
   };
 
+  const onCheckDeviceToken = (token: string) => {
+    isRegisteredUser(token)
+      .then((r) => {
+        if (!r.data) {
+          setIsBusy(false);
+          setFlowStep(3);
+        } else {
+          getMemberInformation(token)
+            .then((info: IMemberInfoResponse) => {
+              const memberInformation = info.data as IMemberInformation;
+              if (memberInformation.memberId !== undefined) {
+                setMemberInfo(memberInformation);
+                setIsBusy(false);
+                setFlowStep(4);
+              }
+            })
+            .catch((e: IApiResponseError) => {
+              if (e.response.data.status === 'failure') {
+                setFlowStep(3);
+                setIsBusy(false);
+                setVerifyErrorMessage(
+                  `No information available, please create account`
+                );
+              }
+            });
+        }
+      })
+      .catch((_) => {
+        setFlowStep(1);
+        setIsBusy(false);
+        setCurrentError('User is not registered, please register');
+      });
+  };
+
   const switchForm = (formStep: number) => {
     if (formStep >= 1 || formStep <= 3) {
       switch (formStep) {
@@ -181,6 +231,7 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
               phoneNumber={registerPhoneNumber}
               onCreateAccount={onCreateAccount}
               verifyErrorMessage={verifyErrorMessage}
+              prefilledData={userData}
             />
           );
         case 4:
@@ -255,6 +306,12 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
       slideIn();
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    if (userData?.deviceToken && userData?.deviceToken !== '') {
+      onCheckDeviceToken(deviceToken);
+    }
+  }, []);
 
   return (
     <View style={viewStyle}>
