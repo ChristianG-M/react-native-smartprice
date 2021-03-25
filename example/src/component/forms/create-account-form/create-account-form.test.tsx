@@ -2,14 +2,15 @@
 // Copyright 2021 Prescryptive Health, Inc.
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { CreateAccountForm } from './create-account-form';
 import { createAccountFormStyles } from './create-account-form.styles';
-import { GreyScale, PurpleScale } from '@phx/core/src/theming/colors';
+import { GreyScale, PurpleScale } from '../../utils/types/colors';
+import { SmartpriceButton } from '../../buttons/smartprice-button/smartprice-button';
 
 describe('CardForm', () => {
   it('has expected properties and styles', () => {
-    const testRenderer = renderer.create(<CreateAccountForm />);
+    const testRenderer = renderer.create(<CreateAccountForm/>);
     const container = testRenderer.root.findAllByType(View, { deep: false })[0];
     expect(container.type).toEqual(View);
 
@@ -59,11 +60,13 @@ describe('CardForm', () => {
     expect(verticalMarginContainer.props.style).toBe(
       createAccountFormStyles.biggerVerticalMarginStyle
     );
-    const verifyErrorMessage = verticalMarginContainer.props.children[0];
+    const verifyErrorMessage = formContainer.props.children[3];
+    expect(verifyErrorMessage.type).toBe(Text);
     expect(verifyErrorMessage.props.style).toBe(
       createAccountFormStyles.errorTextStyle
     );
-    const button = verticalMarginContainer.props.children[1];
+    const button = verticalMarginContainer.props.children;
+    expect(button.type).toEqual(SmartpriceButton);
     expect(button.props.backgroundColor).toEqual(PurpleScale.regular);
     expect(button.props.color).toEqual(GreyScale.white);
   });

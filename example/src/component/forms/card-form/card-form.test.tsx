@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer';
 import { View } from 'react-native';
 import { cardFormStyles } from './card-form.styles';
 import { CardForm } from './card-form';
-import { GreyScale, PurpleScale } from '@phx/core/src/theming/colors';
+import { GreyScale, PurpleScale } from '../../utils/types/colors';
 
 // Copyright 2021 Prescryptive Health, Inc.
 describe('CardForm', () => {
