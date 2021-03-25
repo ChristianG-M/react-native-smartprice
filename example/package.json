@@ -1,14 +1,15 @@
 {
-  "name": "react-native-smartprice",
-  "version": "1.0.0",
-  "description": "Prescryptive SmartPRICE component, with linked example expo project",
-  "main": "index.tsx",
-  "author": "Prescryptive Health, Inc.",
-  "license": "MIT",
+  "name": "react-native-smartprice-example",
+  "version": "0.0.1",
+  "description": "None",
+  "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "build": "yarn eslint && ../../../../node_modules/.bin/tsc",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "test": "jest"
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "eject": "expo eject",
+    "test": "jest --watch"
   },
   "dependencies": {
     "@expo/match-media": "^0.0.0-beta.2",
@@ -18,6 +19,7 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.0.tar.gz",
+    "react-native-smartprice": "file:react-native-smartprice-1.0.0.tgz",
     "react-native-svg": "12.1.0",
     "react-native-web": "~0.13.12",
     "react-responsive": "^8.2.0"
@@ -35,10 +37,7 @@
     "ts-loader": "^8.0.17",
     "typescript": "~4.0.0"
   },
-  "peerDependencies": {
-    "react": "*",
-    "react-native": "*"
-  },
+  "private": true,
   "jest": {
     "preset": "jest-expo",
     "transformIgnorePatterns": [
