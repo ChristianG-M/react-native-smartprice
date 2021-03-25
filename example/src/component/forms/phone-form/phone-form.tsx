@@ -14,7 +14,6 @@ import { GreyScale, PurpleScale } from '../../utils/types/colors';
 import { SmartpriceTextButton } from '../../buttons/text-button/smartprice-text-button';
 import { PhoneMaskInput } from '../../inputs/mask-inputs/phone-mask-input/phone-mask-input';
 import { Checkbox } from '../../inputs/checkbox/checkbox';
-import { VerticalMobile } from '../../utils/types/spacing';
 
 export interface ISmartPriceModalProps {
   viewStyle?: StyleProp<ViewStyle>;
@@ -99,7 +98,7 @@ export const PhoneForm: FunctionComponent<ISmartPriceModalProps> = ({
         errorMessage={errorMessage}
       />
 
-      <View style={{ marginTop: VerticalMobile.Regular }}>
+      <View style={phoneFormStyles.checkboxMarginStyle}>
         <Checkbox
           onChange={onChecked}
           label={requirementsLabel}

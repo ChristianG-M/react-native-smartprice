@@ -10,12 +10,6 @@ export interface ISmartPriceProps {
   onContinueFlow?: () => void;
 }
 
-export interface ISmartpriceUserData {
-  firstName: string;
-  lastName: string;
-  dateOfBirth: Date;
-}
-
 export const SmartPrice: FunctionComponent<ISmartPriceProps> = ({
   buttonLabel,
   onContinueFlow,

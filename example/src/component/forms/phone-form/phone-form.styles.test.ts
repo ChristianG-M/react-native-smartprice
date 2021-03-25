@@ -24,6 +24,8 @@ const buttonMarginStyle: ViewStyle = {
   marginTop: VerticalMobile.Medium,
 };
 
+const checkboxMarginStyle: ViewStyle = { marginTop: VerticalMobile.Regular };
+
 const textButtonTextStyle: TextStyle = {
   color: PurpleScale.regular,
   fontSize: 16,
@@ -53,6 +55,7 @@ describe('phoneFormStyles', () => {
   it('has expected default styles', () => {
     const mockPhoneFormStyles: IPhoneFormStyles = {
       buttonMarginStyle,
+      checkboxMarginStyle,
       dividerTextStyle,
       paragraphMarginStyle,
       linkTextStyle,

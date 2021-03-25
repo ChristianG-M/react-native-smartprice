@@ -4,6 +4,7 @@ import { BlueScale, GreyScale, PurpleScale } from '../../utils/types/colors';
 import { VerticalMobile } from '../../utils/types/spacing';
 
 export interface IPhoneFormStyles {
+  checkboxMarginStyle: ViewStyle;
   titleContainerStyle: TextStyle;
   dividerTextStyle: TextStyle;
   textButtonTextStyle: TextStyle;
@@ -33,6 +34,8 @@ const buttonMarginStyle: ViewStyle = {
   marginTop: VerticalMobile.Medium,
 };
 
+const checkboxMarginStyle: ViewStyle = { marginTop: VerticalMobile.Regular };
+
 const textButtonTextStyle: TextStyle = {
   color: PurpleScale.regular,
   fontSize: 16,
@@ -60,6 +63,7 @@ const dividerTextStyle: TextStyle = {
 
 export const phoneFormStyles: IPhoneFormStyles = {
   buttonMarginStyle,
+  checkboxMarginStyle,
   dividerTextStyle,
   paragraphMarginStyle,
   linkTextStyle,
