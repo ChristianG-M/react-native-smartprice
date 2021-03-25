@@ -1,23 +1,30 @@
 // Copyright 2020 Prescryptive Health, Inc.
 
 import { TextStyle, Platform } from 'react-native';
-import { GreyScale, RedScale, BlueScale } from '@phx/core/src/theming/colors';
-import { baseInputStyles, IBaseInputStyles } from './base-input.styles';
-import { Paragraphs, SingleLines } from '@phx/core/src/theming/font-ramp';
-import { Margins } from '@phx/core/src/theming/spacing';
+import { BlueScale, GreyScale, RedScale } from '../../utils/types/colors';
+import { baseInputStyles } from './base-input.styles';
+
+export interface IBaseInputStyles {
+  textStyle: TextStyle;
+  focusTextStyle: TextStyle;
+  blurTextStyle: TextStyle;
+  errorTextStyle: TextStyle;
+  errorMessageTextStyle: TextStyle;
+}
 
 const errorTextStyle: TextStyle = {
   borderColor: RedScale.light,
 };
 
 const errorMessageTextStyle: TextStyle = {
-  ...Paragraphs.p2,
+  fontSize: 16,
   color: RedScale.dark,
-  marginTop: Margins.smallest,
+  marginTop: 6,
 };
 
 const textStyle: TextStyle = {
-  ...SingleLines.p1,
+  fontSize: 16,
+  lineHeight: 18,
   height: 48,
   paddingHorizontal: 16,
   paddingVertical: 12,
@@ -25,12 +32,6 @@ const textStyle: TextStyle = {
   backgroundColor: GreyScale.light,
   borderWidth: 2,
   borderColor: GreyScale.light,
-};
-
-const darkTextStyle: TextStyle = {
-  ...textStyle,
-  backgroundColor: GreyScale.black,
-  color: GreyScale.white,
 };
 
 const focusTextStyle = {
@@ -41,7 +42,7 @@ const focusTextStyle = {
 
 const blurTextStyle = { borderColor: GreyScale.light, outlineWidth: 0 };
 
-const defaultStyleSheet: IBaseInputStyles = {
+const baseInputStylesMock: IBaseInputStyles = {
   textStyle,
   focusTextStyle,
   blurTextStyle,
@@ -49,20 +50,9 @@ const defaultStyleSheet: IBaseInputStyles = {
   errorTextStyle,
 };
 
-const darkStyleSheet: IBaseInputStyles = {
-  textStyle: darkTextStyle,
-  focusTextStyle,
-  blurTextStyle,
-  errorMessageTextStyle,
-  errorTextStyle,
-};
 
 describe('baseInputStyles', () => {
   it('has expected default styles', () => {
-    expect(baseInputStyles.default).toEqual(defaultStyleSheet);
-  });
-
-  it('has a dark theme', () => {
-    expect(baseInputStyles.themes?.get('dark')).toEqual(darkStyleSheet);
+    expect(baseInputStylesMock).toEqual(baseInputStyles);
   });
 });
