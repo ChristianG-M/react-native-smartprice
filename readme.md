@@ -1,4 +1,4 @@
-# React Native Smartprice SDK [SmartPRICE™](https://smartprice.myrx.io/)
+# [SmartPRICE™](https://smartprice.myrx.io/) React Native Smartprice SDK
 
 **_includes_**:
 
