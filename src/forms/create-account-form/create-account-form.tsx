@@ -18,7 +18,7 @@ import { IFormData } from '../../api/smartprice-api';
 import { DateMaskInput } from '../../inputs/mask-inputs/date-mask-input/date-mask-input';
 import { isValidEmail } from '../../utils/validators/email.validator/email.validator';
 import { getDateOfBirth } from '../../utils/parsers/date-parser';
-import { ISmartpriceUserData } from '../..';
+import { ISmartpriceUserData } from '../../../index';
 import { Checkbox } from '../../inputs/checkbox/checkbox';
 
 export interface ISmartPriceModalProps {
