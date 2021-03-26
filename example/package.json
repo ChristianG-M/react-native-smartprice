@@ -1,0 +1,48 @@
+{
+  "name": "react-native-smartprice-example",
+  "version": "0.0.1",
+  "description": "None",
+  "main": "node_modules/expo/AppEntry.js",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web",
+    "eject": "expo eject",
+    "test": "jest --watch"
+  },
+  "dependencies": {
+    "@expo/match-media": "^0.0.0-beta.2",
+    "axios": "^0.21.1",
+    "expo": "~40.0.0",
+    "expo-status-bar": "~1.0.3",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-40.0.0.tar.gz",
+    "react-native-smartprice": "^1.0.1",
+    "react-native-svg": "12.1.0",
+    "react-native-web": "~0.13.12",
+    "react-responsive": "^8.2.0",
+    "rc-progress":"^3.1.3"
+  },
+  "devDependencies": {
+    "@babel/core": "~7.9.0",
+    "@types/react": "~16.9.35",
+    "@types/react-dom": "~16.9.8",
+    "@types/react-native": "~0.63.2",
+    "@types/react-responsive": "^8.0.2",
+    "@types/react-test-renderer": "^17.0.1",
+    "jest-expo": "^40.0.2",
+    "metro-react-native-babel-preset": "^0.65.0",
+    "react-test-renderer": "^17.0.1",
+    "ts-loader": "^8.0.17",
+    "typescript": "~4.0.0"
+  },
+  "private": true,
+  "jest": {
+    "preset": "jest-expo",
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|@sentry/.*)"
+    ]
+  }
+}
