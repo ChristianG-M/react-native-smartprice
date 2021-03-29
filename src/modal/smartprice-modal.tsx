@@ -248,7 +248,11 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
               onContinue={onContinueFlowDefined}
             />
           );
+        default:
+          return undefined;
       }
+    } else {
+      return undefined;
     }
   };
 
