@@ -331,6 +331,7 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
           isBackButtonEnabled={backButton}
           onClose={onCloseModal}
           onBackButtonPressed={onBackButtonPressed}
+          currentStep={flowStep}
         />
         <View style={smartpriceModalStyles.scrollContainerViewStyle}>
           <View style={smartpriceModalStyles.formContainerViewStyle}>
