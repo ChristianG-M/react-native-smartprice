@@ -5,15 +5,16 @@ import { SmartPriceIconButton } from '../buttons/icon-button/icon-button';
 import { PrescryptiveBrand } from '../icons/prescryptive-brand/prescryptive-brand';
 import { smartpriceModalHeaderStyles } from './smartprice-modal-header.styles';
 import { CloseIcon } from '../icons/close-icon/close-icon';
-import '@expo/match-media';
 import { ArrowIcon } from '../icons/arrow-icon/arrow-icon';
 import { PurpleScale } from '../utils/types/colors';
+import { ProgressBar } from '../progress-bar/progress-bar';
 
 export interface ISmartpriceModalProps {
   viewStyle?: StyleProp<ViewStyle>;
   onClose: () => void;
   onBackButtonPressed: () => void;
   isBackButtonEnabled?: boolean;
+  currentStep?: number;
 }
 
 export const SmartpriceModalHeader: FunctionComponent<ISmartpriceModalProps> = ({
@@ -21,6 +22,7 @@ export const SmartpriceModalHeader: FunctionComponent<ISmartpriceModalProps> = (
   onBackButtonPressed,
   isBackButtonEnabled,
   viewStyle,
+  currentStep = 1
 }): ReactElement => {
   const backButton = isBackButtonEnabled ? (
     <View style={smartpriceModalHeaderStyles.leftIconContainerViewStyle}>
@@ -47,7 +49,7 @@ export const SmartpriceModalHeader: FunctionComponent<ISmartpriceModalProps> = (
           <CloseIcon />
         </SmartPriceIconButton>
       </View>
-      <View style={smartpriceModalHeaderStyles.headerDividerStyle} />
+      <ProgressBar step={currentStep} totalSteps={4} width={2} />
     </View>
   );
 };

@@ -1,6 +1,5 @@
 // Copyright 2020 Prescryptive Health, Inc.
 import { ViewStyle } from 'react-native';
-import { VerticalMobile } from '../utils/types/spacing';
 
 export interface ISmartpriceModalStyles {
   containerViewStyle: ViewStyle;
@@ -20,15 +19,13 @@ const containerViewStyle: ViewStyle = {
 const scrollContainerViewStyle: ViewStyle = {
   flex: 1,
   width: '100vw',
-  justifyContent: 'center',
-  paddingTop: VerticalMobile.Big,
+  justifyContent: 'flex-start',
   overflow: 'scroll',
 };
 
 const formContainerViewStyle: ViewStyle = {
   width: '87.2vw',
   alignSelf: 'center',
-  marginTop: VerticalMobile.Big,
 };
 
 const activityIndicatorViewStyle: ViewStyle = {
