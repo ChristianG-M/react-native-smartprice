@@ -30,7 +30,7 @@ import {
   sendVerificationCodeRequest,
 } from '../api/smartprice-api';
 import { PurpleScale } from '../utils/types/colors';
-import { ISmartpriceUserData } from '..';
+import { ISmartpriceUserData } from '../../index';
 
 export interface ISmartpriceModalProps {
   viewStyle?: StyleProp<ViewStyle>;
@@ -248,7 +248,11 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
               onContinue={onContinueFlowDefined}
             />
           );
+        default:
+          return undefined;
       }
+    } else {
+      return undefined;
     }
   };
 
