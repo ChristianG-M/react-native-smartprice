@@ -144,12 +144,15 @@ export const PhoneForm: FunctionComponent<ISmartPriceModalProps> = ({
       </Text>
 
       <View style={phoneFormStyles.dividerTextStyle} />
-      <SmartpriceTextButton
+      <View>
+        <Text>Powered by Prescryptive™</Text>
+        <SmartpriceTextButton
         onPress={learnAbout}
-        label='Learn about Prescryptive'
+        label='Learn more.'
         textStyle={phoneFormStyles.textButtonTextStyle}
         viewStyle={phoneFormStyles.textButtonViewStyle}
-      />
+        />
+      </View>
     </View>
   );
 };
