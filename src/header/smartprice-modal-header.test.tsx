@@ -10,6 +10,7 @@ import { ArrowIcon } from '../icons/arrow-icon/arrow-icon';
 import { PurpleScale } from '../utils/types/colors';
 import { PrescryptiveBrand } from '../icons/prescryptive-brand/prescryptive-brand';
 import { CloseIcon } from '../icons/close-icon/close-icon';
+import { ProgressBar } from '../progress-bar/progress-bar';
 
 describe('SmartpriceModalHeader', () => {
   it('has expected properties and styles', () => {
@@ -103,11 +104,11 @@ describe('SmartpriceModalHeader', () => {
     expect(closeButton.props.onPress).toEqual(onCloseMockButtonPressed);
     expect(closeButton.props.children.type).toEqual(CloseIcon);
 
-    const dividerContainer = container.props.children[3];
+    const progressBar = container.props.children[3];
 
-    expect(dividerContainer.type).toEqual(View);
-    expect(dividerContainer.props.style).toEqual(
-      smartpriceModalHeaderStyles.headerDividerStyle
-    );
+    expect(progressBar.type).toEqual(ProgressBar);
+    expect(progressBar.props.step).toEqual(1);
+    expect(progressBar.props.totalSteps).toEqual(4);
+    expect(progressBar.props.width).toEqual(2);
   });
 });

@@ -137,7 +137,7 @@ describe('SmartpriceModal', () => {
 
     void act(() => header.props.onClose());
 
-    expect(useEffectMock).toHaveBeenCalledTimes(2);
+    expect(useEffectMock).toHaveBeenCalledTimes(3);
     expect(useEffectMock.mock.calls[0][1]).toEqual([true]);
   });
 

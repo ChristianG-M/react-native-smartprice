@@ -14,7 +14,8 @@ const titleContainerStyle: TextStyle = {
 };
 
 const paragraphMarginStyle: TextStyle = {
-  marginVertical: VerticalMobile.Big,
+  marginTop: VerticalMobile.Regular,
+  marginBottom: VerticalMobile.Medium,
   fontSize: 16,
 };
 
