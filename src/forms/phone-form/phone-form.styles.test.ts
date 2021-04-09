@@ -36,6 +36,7 @@ const textButtonTextStyle: TextStyle = {
 const textButtonViewStyle: ViewStyle = {
   alignSelf: 'flex-start',
   marginVertical: VerticalMobile.Big,
+  flexDirection: 'row'
 };
 
 const requirementsLabelTextStyle: TextStyle = {
@@ -52,6 +53,12 @@ const dividerTextStyle: TextStyle = {
   opacity: 0.3,
 };
 
+const poweredByText: TextStyle = {
+  alignSelf: 'center', 
+  marginRight: 6, 
+  fontSize: 16
+}
+
 describe('phoneFormStyles', () => {
   it('has expected default styles', () => {
     const mockPhoneFormStyles: IPhoneFormStyles = {
@@ -64,6 +71,7 @@ describe('phoneFormStyles', () => {
       titleContainerStyle,
       textButtonViewStyle,
       requirementsLabelTextStyle,
+      poweredByText
     };
     expect(phoneFormStyles).toEqual(mockPhoneFormStyles);
   });

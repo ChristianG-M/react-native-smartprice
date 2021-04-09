@@ -4,9 +4,9 @@ import React from 'react';
 import renderer, { act } from 'react-test-renderer';
 import { PhoneForm } from './phone-form';
 import { phoneFormStyles } from './phone-form.styles';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text } from 'react-native';
 import { PhoneMaskInput } from '../../inputs/mask-inputs/phone-mask-input/phone-mask-input';
-import { Checkbox } from '../../inputs/checkbox/checkbox';
+// import { Checkbox } from '../../inputs/checkbox/checkbox';
 import { SmartpriceButton } from '../../buttons/smartprice-button/smartprice-button';
 import { SmartpriceTextButton } from '../../buttons/text-button/smartprice-text-button';
 import { GreyScale, PurpleScale } from '../../utils/types/colors';
@@ -64,7 +64,7 @@ describe('PhoneForm', () => {
     const testRenderer = renderer.create(<PhoneForm />);
     const learnButton = testRenderer.root.findByType(SmartpriceTextButton);
     expect(learnButton.props.onPress.name).toEqual('learnAbout');
-    expect(learnButton.props.label).toEqual('Learn about Prescryptive');
+    expect(learnButton.props.label).toEqual('Learn more.');
   });
 
   it('Next button has expected props', () => {
@@ -140,11 +140,12 @@ describe('PhoneForm', () => {
     expect(divider.props.style).toEqual(phoneFormStyles.dividerTextStyle);
 
     const learnButton = mainContainer.props.children[6];
-    expect(learnButton.type).toEqual(SmartpriceTextButton);
-    expect(learnButton.props.viewStyle).toEqual(
+    expect(learnButton.type).toEqual(View);
+    expect(learnButton.props.style).toEqual(
       phoneFormStyles.textButtonViewStyle
     );
-    expect(learnButton.props.textStyle).toEqual(
+    const button = learnButton.props.children[1];
+    expect(button.props.textStyle).toEqual(
       phoneFormStyles.textButtonTextStyle
     );
   });
