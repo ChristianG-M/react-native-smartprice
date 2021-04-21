@@ -2,6 +2,7 @@
 import React, { FunctionComponent, useState, useRef, useEffect } from 'react';
 import {
   View,
+  Text,
   StyleProp,
   ViewStyle,
   Animated,
@@ -326,7 +327,7 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
 
   return (
     <View style={viewStyle}>
-      <Animated.View style={slideInAnimationStyle}>
+      {/* <Animated.View style={slideInAnimationStyle}>
         <SmartpriceModalHeader
           isBackButtonEnabled={backButton}
           onClose={onCloseModal}
@@ -334,9 +335,9 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
           currentStep={flowStep}
         />
         <View style={smartpriceModalStyles.scrollContainerViewStyle}>
-          {/* <View style={smartpriceModalStyles.formContainerViewStyle}>
+          <View style={smartpriceModalStyles.formContainerViewStyle}>
             {SwitchForm(flowStep)}
-          </View> */}
+          </View>
           <SmartpriceFooter />
         </View>
         <View style={activityIndicatorStyle}>
@@ -347,7 +348,10 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
             size='large'
           />
         </View>
-      </Animated.View>
+      </Animated.View> */}
+      <Text>
+        hiii
+      </Text>
     </View>
   );
 };
