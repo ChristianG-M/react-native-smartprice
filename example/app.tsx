@@ -10,7 +10,7 @@ export default function App(): ReactElement {
       <Text>
         SmartPRICE SDK React Native Sample Project
       </Text>
-      <SmartPrice />
+      {/* <SmartPrice /> */}
     </View>
   );
 }
