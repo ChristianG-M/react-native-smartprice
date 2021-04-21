@@ -327,8 +327,8 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
 
   return (
     <View style={viewStyle}>
-      {/* <Animated.View style={slideInAnimationStyle}>
-        <SmartpriceModalHeader
+      <Animated.View style={slideInAnimationStyle}>
+        {/* <SmartpriceModalHeader
           isBackButtonEnabled={backButton}
           onClose={onCloseModal}
           onBackButtonPressed={onBackButtonPressed}
@@ -347,11 +347,9 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
             animating={isBusy}
             size='large'
           />
-        </View>
-      </Animated.View> */}
-      <Text>
-        hiii
-      </Text>
+        </View> */}
+        <Text>Hellooooo</Text>
+      </Animated.View>
     </View>
   );
 };
