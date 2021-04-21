@@ -210,7 +210,7 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
       });
   };
 
-  const switchForm = (formStep: number) => {
+  const SwitchForm = (formStep: number) => {
     if (formStep >= 1 || formStep <= 3) {
       switch (formStep) {
         case 1:
@@ -335,7 +335,7 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
         />
         <View style={smartpriceModalStyles.scrollContainerViewStyle}>
           <View style={smartpriceModalStyles.formContainerViewStyle}>
-            {switchForm(flowStep)}
+            {SwitchForm(flowStep)}
           </View>
           <SmartpriceFooter />
         </View>
