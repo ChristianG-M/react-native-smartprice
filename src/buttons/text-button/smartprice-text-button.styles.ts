@@ -10,7 +10,7 @@ export interface ISmartpriceTextButtonStyles {
 
 const containerViewStyle: ViewStyle = {
   backgroundColor: 'transparent',
-  height: '5.1724vh',
+  height: '23.017px',
   alignItems: 'center',
   justifyContent: 'center',
 };

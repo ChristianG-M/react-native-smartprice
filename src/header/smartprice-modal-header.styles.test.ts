@@ -7,7 +7,7 @@ import {
 } from './smartprice-modal-header.styles';
 
 const headerViewStyle: ViewStyle = {
-  height: '16.3793vh',
+  height: '72.887px',
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
@@ -19,24 +19,24 @@ const headerViewStyle: ViewStyle = {
 const brandContainerStyle: ViewStyle = {
   justifyContent: 'center',
   alignItems: 'center',
-  height: '3.2019vh',
+  height: '14.248px',
   position: 'absolute',
   top: VerticalMobile.Big
 };
 
 const rightIconContainerViewStyle: ViewStyle = {
   position: 'absolute',
-  right: '5.33vw',
+  right: '47.756px',
   top: VerticalMobile.Big
 };
 
 const leftIconContainerViewStyle: ViewStyle = {
   position: 'absolute',
-  left: '6.33vw',
-  top: '4.33vh'
+  left: '56.716px',
+  top: '19.268px'
 };
 
-const iconViewStyle: ViewStyle = { maxWidth: '6.4vw' };
+const iconViewStyle: ViewStyle = { maxWidth: '57.344px' };
 
 describe('smartpriceModalHeaderStyles', () => {
   it('has expected default styles', () => {

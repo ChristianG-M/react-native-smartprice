@@ -10,7 +10,7 @@ import {
 const viewStyle: ViewStyle={
   flexDirection: 'column',
   justifyContent: 'flex-end',
-  width: '87.2vw',
+  width: '781.312px',
   position:'absolute',
   bottom: 0
 }

@@ -18,7 +18,7 @@ const centeredRowViewStyle: ViewStyle = {
 
 const footerViewStyle: ViewStyle = {
   flexDirection: 'row',
-  height: '13.0541vh',
+  height: '58.090px',
   marginTop: 'auto',
   justifyContent: 'space-around',
   alignItems: 'flex-start',

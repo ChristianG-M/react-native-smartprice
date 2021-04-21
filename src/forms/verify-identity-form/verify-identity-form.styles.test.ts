@@ -9,8 +9,8 @@ import {
 } from './verify-identity-form.styles';
 
 const containerViewStyle: ViewStyle = {
-  height: '90vh',
-  marginTop: '10vh',
+  height: '400.5px',
+  marginTop: '44.5px',
   backgroundColor: 'white',
   borderTopLeftRadius: 8,
   borderTopRightRadius: 8,

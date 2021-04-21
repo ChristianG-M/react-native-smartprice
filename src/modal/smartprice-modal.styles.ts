@@ -1,4 +1,4 @@
-// Copyright 2020 Prescryptive Health, Inc.
+// Copyright 2021 Prescryptive Health, Inc.
 import { ViewStyle } from 'react-native';
 
 export interface ISmartpriceModalStyles {
@@ -9,8 +9,8 @@ export interface ISmartpriceModalStyles {
 }
 
 const containerViewStyle: ViewStyle = {
-  height: '92.6108vh',
-  marginTop: '7.3891vh',
+  height: '412.118px',
+  marginTop: '732.881px',
   backgroundColor: 'white',
   borderTopLeftRadius: 8,
   borderTopRightRadius: 8,
@@ -18,13 +18,13 @@ const containerViewStyle: ViewStyle = {
 
 const scrollContainerViewStyle: ViewStyle = {
   flex: 1,
-  width: '100vw',
+  width: '896px',
   justifyContent: 'flex-start',
   overflow: 'scroll',
 };
 
 const formContainerViewStyle: ViewStyle = {
-  width: '87.2vw',
+  width: '781.312px',
   alignSelf: 'center',
 };
 

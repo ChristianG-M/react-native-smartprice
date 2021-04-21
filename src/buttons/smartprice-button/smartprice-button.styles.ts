@@ -12,7 +12,7 @@ export interface ISmartpriceButtonStyles {
 const containerViewStyle: ViewStyle = {
   backgroundColor: PurpleScale.regular,
   borderRadius: BorderRadius.container,
-  height: '5.9113vh',
+  height: '26.305px',
   alignItems: 'center',
   justifyContent: 'center',
 };

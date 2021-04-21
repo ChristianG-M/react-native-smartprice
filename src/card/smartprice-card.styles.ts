@@ -47,7 +47,7 @@ const headerViewStyle: ViewStyle = {
   borderTopRightRadius: 9,
   height: 48,
   justifyContent: 'center',
-  paddingLeft: '3.9408vh',
+  paddingLeft: '17.536px',
 };
 
 const headerTextStyle: TextStyle = { color: 'white', fontWeight: '700' };
