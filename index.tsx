@@ -65,14 +65,14 @@ export const SmartPrice: FunctionComponent<ISmartPriceProps> = ({
   return (
     <View ref={componentRef} style={smartPriceStyles.buttonWrapperViewStyle}>
       <SmartpriceButton onPress={slideScreen} label={label} />
-      <SmartpriceModal
+      {/* <SmartpriceModal
         onClose={closeScreen}
         viewStyle={modalStyle}
         isOpen={isOpen}
         onFinishFlow={onFinishFlow}
         userData={userData}
         retrieveDeviceToken={getDeviceToken}
-      />
+      /> */}
     </View>
   );
 };
