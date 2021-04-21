@@ -64,7 +64,7 @@ export const SmartPrice: FunctionComponent<ISmartPriceProps> = ({
 
   return (
     <View ref={componentRef} style={smartPriceStyles.buttonWrapperViewStyle}>
-      <SmartpriceButton onPress={slideScreen} label={label} />
+      {/* <SmartpriceButton onPress={slideScreen} label={label} /> */}
       {/* <SmartpriceModal
         onClose={closeScreen}
         viewStyle={modalStyle}
