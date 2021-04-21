@@ -7,7 +7,6 @@ import { smartpriceModalHeaderStyles } from './smartprice-modal-header.styles';
 import { CloseIcon } from '../icons/close-icon/close-icon';
 import { ArrowIcon } from '../icons/arrow-icon/arrow-icon';
 import { PurpleScale } from '../utils/types/colors';
-import { ProgressBar } from '../progress-bar/progress-bar';
 
 export interface ISmartpriceModalProps {
   viewStyle?: StyleProp<ViewStyle>;
