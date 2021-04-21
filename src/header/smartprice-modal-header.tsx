@@ -49,7 +49,7 @@ export const SmartpriceModalHeader: FunctionComponent<ISmartpriceModalProps> = (
           <CloseIcon />
         </SmartPriceIconButton>
       </View>
-      <ProgressBar step={currentStep} totalSteps={4} width={2} />
+      {/* <ProgressBar step={currentStep} totalSteps={4} width={2} /> */}
     </View>
   );
 };
