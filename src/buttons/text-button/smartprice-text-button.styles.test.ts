@@ -10,7 +10,7 @@ import {
 
 const containerViewStyle: ViewStyle = {
   backgroundColor: 'transparent',
-  height: '23.017px',
+  height: '5.1724%',
   alignItems: 'center',
   justifyContent: 'center',
 };

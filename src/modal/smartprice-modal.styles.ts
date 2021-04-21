@@ -9,8 +9,8 @@ export interface ISmartpriceModalStyles {
 }
 
 const containerViewStyle: ViewStyle = {
-  height: '412.118px',
-  marginTop: '732.881px',
+  height: '92.6108%',
+  marginTop: '7.3891%',
   backgroundColor: 'white',
   borderTopLeftRadius: 8,
   borderTopRightRadius: 8,
@@ -18,13 +18,13 @@ const containerViewStyle: ViewStyle = {
 
 const scrollContainerViewStyle: ViewStyle = {
   flex: 1,
-  width: '896px',
+  width: '100%',
   justifyContent: 'flex-start',
   overflow: 'scroll',
 };
 
 const formContainerViewStyle: ViewStyle = {
-  width: '781.312px',
+  width: '87.2%',
   alignSelf: 'center',
 };
 

@@ -1,22 +1,23 @@
 // Copyright 2020 Prescryptive Health, Inc.
 
 export enum VerticalMobile {
-  Double = '35.073px',
-  Bigger = '26.305px',
-  Big = '17.536px',
-  Medium = '13.152px',
-  Regular = '8.768px',
-  Small = '4.384px',
+  Double = '7.8816%',
+  Bigger = '5.9113%',
+  Big = '3.9408%',
+  Medium = '2.9556%',
+  Regular = '1.9704%',
+  Small = '0.9852%',
 }
 
 export enum HorizontalMobile {
-  Double = '229.376px',
-  Bigger = '114.688px',
-  Big = '76.458px',
-  Medium = '57.344px',
-  Regular = '38.228px',
-  Small = '19.114px',
+  Double = '25.6%',
+  Bigger = '12.8%',
+  Big = '8.5333%',
+  Medium = '6.4%',
+  Regular = '4.2666%',
+  Small = '2.1333%',
 }
+
 
 export enum BorderRadius {
   input = 4,

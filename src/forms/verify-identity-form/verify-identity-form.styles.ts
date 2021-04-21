@@ -23,8 +23,8 @@ export interface IVerifyIdentityFormStyles {
 }
 
 const containerViewStyle: ViewStyle = {
-  height: '400.5px',
-  marginTop: '44.5px',
+  height: '90%',
+  marginTop: '10%',
   backgroundColor: 'white',
   borderTopLeftRadius: 8,
   borderTopRightRadius: 8,

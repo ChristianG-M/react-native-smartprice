@@ -9,7 +9,7 @@ export interface IProgressBarStyles {
 const viewStyle: ViewStyle={
     flexDirection: 'column',
     justifyContent: 'flex-end',
-    width: '781.312px',
+    width: '87.2%',
     position:'absolute',
     bottom: 0
 }
