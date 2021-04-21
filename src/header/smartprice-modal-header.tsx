@@ -1,5 +1,5 @@
 // Copyright 2021 Prescryptive Health, Inc.
-import React, { FunctionComponent, ReactElement } from 'react';
+import React, { FunctionComponent } from 'react';
 import { View, StyleProp, ViewStyle } from 'react-native';
 import { SmartPriceIconButton } from '../buttons/icon-button/icon-button';
 import { PrescryptiveBrand } from '../icons/prescryptive-brand/prescryptive-brand';
@@ -22,7 +22,7 @@ export const SmartpriceModalHeader: FunctionComponent<ISmartpriceModalProps> = (
   isBackButtonEnabled,
   viewStyle,
   currentStep = 1
-}): ReactElement => {
+}) => {
   const backButton = isBackButtonEnabled ? (
     <View style={smartpriceModalHeaderStyles.leftIconContainerViewStyle}>
       <SmartPriceIconButton
