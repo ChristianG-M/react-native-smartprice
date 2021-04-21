@@ -37,17 +37,17 @@ export const SmartpriceModalHeader: FunctionComponent<ISmartpriceModalProps> = (
   return (
     <View style={[smartpriceModalHeaderStyles.headerViewStyle, viewStyle]}>
       {backButton}
-      <View style={smartpriceModalHeaderStyles.brandContainerStyle}>
+      {/* <View style={smartpriceModalHeaderStyles.brandContainerStyle}>
         <PrescryptiveBrand />
-      </View>
-      {/* <View style={smartpriceModalHeaderStyles.rightIconContainerViewStyle}>
+      </View> */}
+      <View style={smartpriceModalHeaderStyles.rightIconContainerViewStyle}>
         <SmartPriceIconButton
           onPress={onClose}
           viewStyle={smartpriceModalHeaderStyles.iconViewStyle}
         >
           <CloseIcon />
         </SmartPriceIconButton>
-      </View> */}
+      </View>
       {/* <ProgressBar step={currentStep} totalSteps={4} width={2} /> */}
     </View>
   );
