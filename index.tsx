@@ -2,7 +2,7 @@
 import React, { FunctionComponent, useState } from 'react';
 import { View, ViewStyle, StyleSheet, Dimensions } from 'react-native';
 import { SmartpriceButton } from './src/buttons/smartprice-button/smartprice-button';
-// import { SmartpriceModal } from './src/modal/smartprice-modal';
+import { SmartpriceModal } from './src/modal/smartprice-modal';
 import { smartPriceStyles } from './index.styles';
 import { IMemberInformation } from './src/api/smartprice-api';
 
@@ -65,14 +65,14 @@ export const SmartPrice: FunctionComponent<ISmartPriceProps> = ({
   return (
     <View ref={componentRef} style={smartPriceStyles.buttonWrapperViewStyle}>
       <SmartpriceButton onPress={slideScreen} label={label} />
-      {/* <SmartpriceModal
+      <SmartpriceModal
         onClose={closeScreen}
         viewStyle={modalStyle}
         isOpen={isOpen}
         onFinishFlow={onFinishFlow}
         userData={userData}
         retrieveDeviceToken={getDeviceToken}
-      /> */}
+      />
     </View>
   );
 };

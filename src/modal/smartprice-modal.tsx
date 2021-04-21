@@ -74,187 +74,187 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
   const [currentError, setCurrentError] = useState<string>('');
   const [isBusy, setIsBusy] = useState<boolean>(false);
 
-  const onCreateAccount = (userInfo: IFormData) => {
-    setIsBusy(true);
-    if (userInfo !== null && deviceToken !== '') {
-      registerAppUser(userInfo, deviceToken)
-        ?.then((response: IMemberInfoResponse) => {
-          const memberInformation = response.data as IMemberInformation;
-          if (memberInformation.memberId !== undefined) {
-            setIsBusy(false);
-            setMemberInfo({
-              ...memberInformation,
-              deviceToken: retrieveDeviceToken ? deviceToken : '',
-            });
-            setFlowStep(4);
-          }
-        })
-        .catch((e: IApiResponseError) => {
-          if (e.response.data.status === 'failure') {
-            setIsBusy(false);
-            setFlowStep(3);
-            setVerifyErrorMessage(
-              `We couldn't create your account, please try again later`
-            );
-          }
-        });
-    } else {
-      setIsBusy(false);
-      setVerifyErrorMessage('Please, fill all the fields');
-    }
-  };
+  // const onCreateAccount = (userInfo: IFormData) => {
+  //   setIsBusy(true);
+  //   if (userInfo !== null && deviceToken !== '') {
+  //     registerAppUser(userInfo, deviceToken)
+  //       ?.then((response: IMemberInfoResponse) => {
+  //         const memberInformation = response.data as IMemberInformation;
+  //         if (memberInformation.memberId !== undefined) {
+  //           setIsBusy(false);
+  //           setMemberInfo({
+  //             ...memberInformation,
+  //             deviceToken: retrieveDeviceToken ? deviceToken : '',
+  //           });
+  //           setFlowStep(4);
+  //         }
+  //       })
+  //       .catch((e: IApiResponseError) => {
+  //         if (e.response.data.status === 'failure') {
+  //           setIsBusy(false);
+  //           setFlowStep(3);
+  //           setVerifyErrorMessage(
+  //             `We couldn't create your account, please try again later`
+  //           );
+  //         }
+  //       });
+  //   } else {
+  //     setIsBusy(false);
+  //     setVerifyErrorMessage('Please, fill all the fields');
+  //   }
+  // };
 
-  const onVerificationCodeRequest = (phoneNumber: string) => {
-    setIsBusy(true);
-    sendVerificationCodeRequest(phoneNumber)
-      .then((_) => {
-        setIsBusy(false);
-        setFlowStep(2);
-        setRegisterPhoneNumber(phoneNumber);
-        setCurrentError('');
-      })
-      .catch((e: string) => {
-        setIsBusy(false);
-        setCurrentError(e);
-      });
-  };
+  // const onVerificationCodeRequest = (phoneNumber: string) => {
+  //   setIsBusy(true);
+  //   sendVerificationCodeRequest(phoneNumber)
+  //     .then((_) => {
+  //       setIsBusy(false);
+  //       setFlowStep(2);
+  //       setRegisterPhoneNumber(phoneNumber);
+  //       setCurrentError('');
+  //     })
+  //     .catch((e: string) => {
+  //       setIsBusy(false);
+  //       setCurrentError(e);
+  //     });
+  // };
 
-  const onSendVerificationCode = (code: string) => {
-    setIsBusy(true);
-    if (registerPhoneNumber) {
-      setVerificationCode(code);
-      getDeviceToken(code, registerPhoneNumber)
-        .then((response: IDeviceTokenResponse) => {
-          if (response.status === 'success') {
-            if (!response.data.deviceToken) {
-              // Can we have a success but not deviceToken?
-            } else {
-              const token = response.data.deviceToken;
-              setDeviceToken(token);
-              isRegisteredUser(token)
-                .then((r) => {
-                  if (!r.data) {
-                    setIsBusy(false);
-                    setFlowStep(3);
-                  } else {
-                    getMemberInformation(token)
-                      .then((info: IMemberInfoResponse) => {
-                        const memberInformation = info.data as IMemberInformation;
-                        if (memberInformation.memberId !== undefined) {
-                          setMemberInfo({
-                            ...memberInformation,
-                            deviceToken: retrieveDeviceToken ? deviceToken : '',
-                          });
-                          setIsBusy(false);
-                          setFlowStep(4);
-                        }
-                      })
-                      .catch((e: IApiResponseError) => {
-                        if (e.response.data.status === 'failure') {
-                          setFlowStep(3);
-                          setIsBusy(false);
-                          setVerifyErrorMessage(`No information available`);
-                        }
-                      });
-                  }
-                })
-                .catch((_) => {
-                  setFlowStep(1);
-                  setIsBusy(false);
-                  setCurrentError(
-                    'Something went wrong, please try again later'
-                  );
-                });
-            }
-          }
-        })
-        .catch((_: IApiResponseError) => {
-          setFlowStep(1);
-          setIsBusy(false);
-          setCurrentError('Something went wrong, please try again later');
-        });
-    }
-  };
+  // const onSendVerificationCode = (code: string) => {
+  //   setIsBusy(true);
+  //   if (registerPhoneNumber) {
+  //     setVerificationCode(code);
+  //     getDeviceToken(code, registerPhoneNumber)
+  //       .then((response: IDeviceTokenResponse) => {
+  //         if (response.status === 'success') {
+  //           if (!response.data.deviceToken) {
+  //             // Can we have a success but not deviceToken?
+  //           } else {
+  //             const token = response.data.deviceToken;
+  //             setDeviceToken(token);
+  //             isRegisteredUser(token)
+  //               .then((r) => {
+  //                 if (!r.data) {
+  //                   setIsBusy(false);
+  //                   setFlowStep(3);
+  //                 } else {
+  //                   getMemberInformation(token)
+  //                     .then((info: IMemberInfoResponse) => {
+  //                       const memberInformation = info.data as IMemberInformation;
+  //                       if (memberInformation.memberId !== undefined) {
+  //                         setMemberInfo({
+  //                           ...memberInformation,
+  //                           deviceToken: retrieveDeviceToken ? deviceToken : '',
+  //                         });
+  //                         setIsBusy(false);
+  //                         setFlowStep(4);
+  //                       }
+  //                     })
+  //                     .catch((e: IApiResponseError) => {
+  //                       if (e.response.data.status === 'failure') {
+  //                         setFlowStep(3);
+  //                         setIsBusy(false);
+  //                         setVerifyErrorMessage(`No information available`);
+  //                       }
+  //                     });
+  //                 }
+  //               })
+  //               .catch((_) => {
+  //                 setFlowStep(1);
+  //                 setIsBusy(false);
+  //                 setCurrentError(
+  //                   'Something went wrong, please try again later'
+  //                 );
+  //               });
+  //           }
+  //         }
+  //       })
+  //       .catch((_: IApiResponseError) => {
+  //         setFlowStep(1);
+  //         setIsBusy(false);
+  //         setCurrentError('Something went wrong, please try again later');
+  //       });
+  //   }
+  // };
 
-  const onCheckDeviceToken = (token: string) => {
-    isRegisteredUser(token)
-      .then((r) => {
-        if (!r.data) {
-          setIsBusy(false);
-          setFlowStep(3);
-        } else {
-          getMemberInformation(token)
-            .then((info: IMemberInfoResponse) => {
-              const memberInformation = info.data as IMemberInformation;
-              if (memberInformation.memberId !== undefined) {
-                setMemberInfo(memberInformation);
-                setIsBusy(false);
-                setFlowStep(4);
-              }
-            })
-            .catch((e: IApiResponseError) => {
-              if (e.response.data.status === 'failure') {
-                setFlowStep(3);
-                setIsBusy(false);
-                setVerifyErrorMessage(
-                  `No information available, please create account`
-                );
-              }
-            });
-        }
-      })
-      .catch((_) => {
-        setFlowStep(1);
-        setIsBusy(false);
-        setCurrentError('User is not registered, please register');
-      });
-  };
+  // const onCheckDeviceToken = (token: string) => {
+  //   isRegisteredUser(token)
+  //     .then((r) => {
+  //       if (!r.data) {
+  //         setIsBusy(false);
+  //         setFlowStep(3);
+  //       } else {
+  //         getMemberInformation(token)
+  //           .then((info: IMemberInfoResponse) => {
+  //             const memberInformation = info.data as IMemberInformation;
+  //             if (memberInformation.memberId !== undefined) {
+  //               setMemberInfo(memberInformation);
+  //               setIsBusy(false);
+  //               setFlowStep(4);
+  //             }
+  //           })
+  //           .catch((e: IApiResponseError) => {
+  //             if (e.response.data.status === 'failure') {
+  //               setFlowStep(3);
+  //               setIsBusy(false);
+  //               setVerifyErrorMessage(
+  //                 `No information available, please create account`
+  //               );
+  //             }
+  //           });
+  //       }
+  //     })
+  //     .catch((_) => {
+  //       setFlowStep(1);
+  //       setIsBusy(false);
+  //       setCurrentError('User is not registered, please register');
+  //     });
+  // };
 
-  const SwitchForm = (formStep: number) => {
-    if (formStep >= 1 || formStep <= 3) {
-      switch (formStep) {
-        case 1:
-          return (
-            <PhoneForm
-              onVerificationCodeRequest={onVerificationCodeRequest}
-              errorMessage={currentError}
-              userNumber={registerPhoneNumber}
-            />
-          );
-        case 2:
-          return (
-            <VerifyIdentityForm
-              phoneNumber={registerPhoneNumber}
-              onSendVerificationCode={onSendVerificationCode}
-              resendRequestVerificationCode={onVerificationCodeRequest}
-              errorMessage={currentError}
-            />
-          );
-        case 3:
-          return (
-            <CreateAccountForm
-              verificationCode={verificationCode}
-              deviceToken={deviceToken}
-              phoneNumber={registerPhoneNumber}
-              onCreateAccount={onCreateAccount}
-              verifyErrorMessage={verifyErrorMessage}
-              prefilledData={userData}
-            />
-          );
-        case 4:
-          return (
-            <CardForm
-              memberInfo={memberInfo}
-              onContinue={onContinueFlowDefined}
-            />
-          );
-        default:
-          return undefined;
-      }
-    } else {
-      return undefined;
-    }
-  };
+  // const SwitchForm = (formStep: number) => {
+  //   if (formStep >= 1 || formStep <= 3) {
+  //     switch (formStep) {
+  //       case 1:
+  //         return (
+  //           <PhoneForm
+  //             onVerificationCodeRequest={onVerificationCodeRequest}
+  //             errorMessage={currentError}
+  //             userNumber={registerPhoneNumber}
+  //           />
+  //         );
+  //       case 2:
+  //         return (
+  //           <VerifyIdentityForm
+  //             phoneNumber={registerPhoneNumber}
+  //             onSendVerificationCode={onSendVerificationCode}
+  //             resendRequestVerificationCode={onVerificationCodeRequest}
+  //             errorMessage={currentError}
+  //           />
+  //         );
+  //       case 3:
+  //         return (
+  //           <CreateAccountForm
+  //             verificationCode={verificationCode}
+  //             deviceToken={deviceToken}
+  //             phoneNumber={registerPhoneNumber}
+  //             onCreateAccount={onCreateAccount}
+  //             verifyErrorMessage={verifyErrorMessage}
+  //             prefilledData={userData}
+  //           />
+  //         );
+  //       case 4:
+  //         return (
+  //           <CardForm
+  //             memberInfo={memberInfo}
+  //             onContinue={onContinueFlowDefined}
+  //           />
+  //         );
+  //       default:
+  //         return undefined;
+  //     }
+  //   } else {
+  //     return undefined;
+  //   }
+  // };
 
   const onContinueFlowDefined = (memberInfo?: IMemberInformation) => {
     if (onFinishFlow) {
@@ -318,11 +318,11 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
     }
   }, [isOpen]);
 
-  useEffect(() => {
-    if (userData?.deviceToken && userData?.deviceToken !== '') {
-      onCheckDeviceToken(deviceToken);
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (userData?.deviceToken && userData?.deviceToken !== '') {
+  //     onCheckDeviceToken(deviceToken);
+  //   }
+  // }, []);
 
   return (
     <View style={viewStyle}>
@@ -334,9 +334,9 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
           currentStep={flowStep}
         />
         <View style={smartpriceModalStyles.scrollContainerViewStyle}>
-          <View style={smartpriceModalStyles.formContainerViewStyle}>
+          {/* <View style={smartpriceModalStyles.formContainerViewStyle}>
             {SwitchForm(flowStep)}
-          </View>
+          </View> */}
           <SmartpriceFooter />
         </View>
         <View style={activityIndicatorStyle}>
