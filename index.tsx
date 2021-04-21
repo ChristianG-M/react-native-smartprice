@@ -1,6 +1,6 @@
 // Copyright 2021 Prescryptive Health, Inc.
 import React, { FunctionComponent, useState } from 'react';
-import { View, ViewStyle, StyleSheet, Dimensions } from 'react-native';
+import { View, Text, ViewStyle, StyleSheet, Dimensions } from 'react-native';
 // import { SmartpriceButton } from './src/buttons/smartprice-button/smartprice-button';
 // import { SmartpriceModal } from './src/modal/smartprice-modal';
 import { smartPriceStyles } from './index.styles';
@@ -63,7 +63,8 @@ export const SmartPrice: FunctionComponent<ISmartPriceProps> = ({
   ];
 
   return (
-    <View ref={componentRef} style={smartPriceStyles.buttonWrapperViewStyle}>
+    <View>
+      <Text>Hello</Text>
       {/* <SmartpriceButton onPress={slideScreen} label={label} /> */}
       {/* <SmartpriceModal
         onClose={closeScreen}
