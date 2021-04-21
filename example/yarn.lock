@@ -6999,7 +6999,7 @@ react-native-safe-area-context@3.1.9:
 
 react-native-smartprice@prescryptive/react-native-smartprice#debug.native:
   version "1.0.5"
-  resolved "https://codeload.github.com/prescryptive/react-native-smartprice/tar.gz/5568cead3f60a2e75382400aa6bcf15378cfd94a"
+  resolved "https://codeload.github.com/prescryptive/react-native-smartprice/tar.gz/744e0cb1c2d4fc6c17adfb418b27a3a80fc96eb0"
   dependencies:
     "@expo/match-media" "^0.0.0-beta.2"
     axios "^0.21.1"

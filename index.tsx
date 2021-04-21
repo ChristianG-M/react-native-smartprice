@@ -1,8 +1,8 @@
 // Copyright 2021 Prescryptive Health, Inc.
 import React, { FunctionComponent, useState } from 'react';
 import { View, ViewStyle, StyleSheet, Dimensions } from 'react-native';
-import { SmartpriceButton } from './src/buttons/smartprice-button/smartprice-button';
-import { SmartpriceModal } from './src/modal/smartprice-modal';
+// import { SmartpriceButton } from './src/buttons/smartprice-button/smartprice-button';
+// import { SmartpriceModal } from './src/modal/smartprice-modal';
 import { smartPriceStyles } from './index.styles';
 import { IMemberInformation } from './src/api/smartprice-api';
 
