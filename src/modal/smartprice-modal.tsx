@@ -328,13 +328,13 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
   return (
     <View style={viewStyle}>
       <Animated.View style={slideInAnimationStyle}>
-        {/* <SmartpriceModalHeader
+        <SmartpriceModalHeader
           isBackButtonEnabled={backButton}
           onClose={onCloseModal}
           onBackButtonPressed={onBackButtonPressed}
           currentStep={flowStep}
         />
-        <View style={smartpriceModalStyles.scrollContainerViewStyle}>
+        {/* <View style={smartpriceModalStyles.scrollContainerViewStyle}>
           <View style={smartpriceModalStyles.formContainerViewStyle}>
             {SwitchForm(flowStep)}
           </View>
@@ -348,7 +348,6 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
             size='large'
           />
         </View> */}
-        <Text>Hellooooo</Text>
       </Animated.View>
     </View>
   );
