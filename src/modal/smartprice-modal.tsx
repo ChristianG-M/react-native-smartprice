@@ -36,39 +36,39 @@ export interface ISmartpriceModalProps {
   viewStyle?: StyleProp<ViewStyle>;
   onClose: () => void;
   isOpen: boolean;
-  onMemberInfo?: (info: string) => void;
-  onFinishFlow?: (memberInfo?: IMemberInformation) => void;
-  userData?: ISmartpriceUserData;
-  retrieveDeviceToken?: boolean;
+  // onMemberInfo?: (info: string) => void;
+  // onFinishFlow?: (memberInfo?: IMemberInformation) => void;
+  // userData?: ISmartpriceUserData;
+  // retrieveDeviceToken?: boolean;
 }
 
 export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
   viewStyle,
   onClose,
   isOpen,
-  onFinishFlow,
-  userData,
-  retrieveDeviceToken,
+  // onFinishFlow,
+  // userData,
+  // retrieveDeviceToken,
 }): React.ReactElement => {
   const deviceHeight = Dimensions.get('screen').height;
 
-  const prefilledPhoneNumber = () => {
-    const number = userData?.phoneNumber ?? '';
-    if (number.length < 10) {
-      return '';
-    } else {
-      return number;
-    }
-  };
+  // const prefilledPhoneNumber = () => {
+  //   const number = userData?.phoneNumber ?? '';
+  //   if (number.length < 10) {
+  //     return '';
+  //   } else {
+  //     return number;
+  //   }
+  // };
 
   const [flowStep, setFlowStep] = useState<number>(1);
-  const [registerPhoneNumber, setRegisterPhoneNumber] = useState<string>(
-    prefilledPhoneNumber()
-  );
-  const [memberInfo, setMemberInfo] = useState<IMemberInformation>();
-  const [deviceToken, setDeviceToken] = useState<string>(
-    userData?.deviceToken ?? ''
-  );
+  // const [registerPhoneNumber, setRegisterPhoneNumber] = useState<string>(
+  //   prefilledPhoneNumber()
+  // );
+  // const [memberInfo, setMemberInfo] = useState<IMemberInformation>();
+  // const [deviceToken, setDeviceToken] = useState<string>(
+  //   userData?.deviceToken ?? ''
+  // );
   const [verificationCode, setVerificationCode] = useState<string>('');
   const [verifyErrorMessage, setVerifyErrorMessage] = useState<string>('');
   const [currentError, setCurrentError] = useState<string>('');
@@ -256,19 +256,19 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
   //   }
   // };
 
-  const onContinueFlowDefined = (memberInfo?: IMemberInformation) => {
-    if (onFinishFlow) {
-      onFinishFlow(memberInfo);
-    } else {
-      onCloseModal();
-    }
-  };
+  // const onContinueFlowDefined = (memberInfo?: IMemberInformation) => {
+  //   if (onFinishFlow) {
+  //     onFinishFlow(memberInfo);
+  //   } else {
+  //     onCloseModal();
+  //   }
+  // };
 
   const backButton = flowStep > 1 && flowStep < 4;
 
   const onCloseModal = () => {
     slideOut();
-    setRegisterPhoneNumber('');
+    // setRegisterPhoneNumber('');
     setCurrentError('');
     setFlowStep(1);
   };

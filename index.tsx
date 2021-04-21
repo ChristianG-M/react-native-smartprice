@@ -69,9 +69,9 @@ export const SmartPrice: FunctionComponent<ISmartPriceProps> = ({
         onClose={closeScreen}
         viewStyle={modalStyle}
         isOpen={isOpen}
-        onFinishFlow={onFinishFlow}
-        userData={userData}
-        retrieveDeviceToken={getDeviceToken}
+        // onFinishFlow={onFinishFlow}
+        // userData={userData}
+        // retrieveDeviceToken={getDeviceToken}
       />
     </View>
   );
