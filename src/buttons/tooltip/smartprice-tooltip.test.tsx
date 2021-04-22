@@ -11,7 +11,7 @@ import { HelpIcon } from '../../icons/help-icon/help-icon';
 describe('SmartpriceTooltip', () => {
   it('has expected styles', () => {
     const mockViewStyle = { flex: 1 };
-    const mockLabel = `You need to be under 65 and not be a part of any government funded healthcare program to be elegible.`;
+    const mockLabel = `You need to be under 65 and not be a part of any government funded healthcare program to be eligible.`;
     const testRenderer = renderer.create(
       <SmartpriceTooltip viewStyle={mockViewStyle} />
     );
@@ -41,7 +41,7 @@ describe('SmartpriceTooltip', () => {
     expect(iconButton.props.children[0].type).toEqual(HelpIcon);
     expect(iconButton.props.children[1].type).toEqual(Text);
     expect(iconButton.props.children[1].props.children).toEqual(
-      'Am I elegible?'
+      'Am I eligible?'
     );
   });
 });

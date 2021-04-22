@@ -36,19 +36,17 @@ export const SmartpriceTooltip: FunctionComponent<ISmartpriceTooltipProps> = ({
     <View style={viewStyle}>
       <TouchableHighlight
         style={[smartpriceTooltipStyles.tooltipStyle, tooltipViewStyle]}
-        onPress={hideTooltip}
-      >
+        onPress={hideTooltip}>
         <Text style={smartpriceTooltipStyles.paragraphStyle}>
           You need to be under 65 and not be a part of any government funded
-          healthcare program to be elegible.
+          healthcare program to be eligible.
         </Text>
       </TouchableHighlight>
       <SmartPriceIconButton
         onPress={toggleTooltip}
-        viewStyle={smartpriceTooltipStyles.iconButtonViewStyle}
-      >
+        viewStyle={smartpriceTooltipStyles.iconButtonViewStyle}>
         <HelpIcon />
-        <Text>Am I elegible?</Text>
+        <Text>Am I eligible?</Text>
       </SmartPriceIconButton>
     </View>
   );
