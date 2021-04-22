@@ -2,14 +2,14 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { HelpIcon } from './help-icon';
-import Svg from 'react-native-svg';
+import Svg, { Path, G } from 'react-native-svg';
 
 describe('HelpIcon', () => {
   it('render component with correct type', () => {
     const testRenderer = renderer.create(<HelpIcon />);
     const icon = testRenderer.root.findByType(Svg);
-    expect(icon.props.children[0].type).toEqual('g');
-    expect(icon.props.children[0].props.children.type).toEqual('path');
+    expect(icon.props.children[0].type).toEqual(G);
+    expect(icon.props.children[0].props.children.type).toEqual(Path);
   });
 
   it('render component with correct color', () => {

@@ -92,7 +92,7 @@ describe('SmartpriceModal', () => {
     expect(animatedView.props.style).toEqual([
       smartpriceModalStyles.containerViewStyle,
       {
-        marginTop: slideAnimMock,
+        transform: [{ translateY: slideAnimMock }],
       },
     ]);
     expect(animatedView.props.children[0].type).toEqual(SmartpriceModalHeader);
@@ -137,7 +137,7 @@ describe('SmartpriceModal', () => {
 
     void act(() => header.props.onClose());
 
-    expect(useEffectMock).toHaveBeenCalledTimes(3);
+    expect(useEffectMock).toHaveBeenCalledTimes(2);
     expect(useEffectMock.mock.calls[0][1]).toEqual([true]);
   });
 

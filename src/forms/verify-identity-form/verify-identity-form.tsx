@@ -67,7 +67,7 @@ export const VerifyIdentityForm: FunctionComponent<IVerifyIdentityFormProps> = (
 
       <View>
         <Text style={verifyIdentityFormStyles.receiveCodeTextStyle}>
-          Didn’t receive your code?
+          Didn’t receive your code? &nbsp;
           <Text style={verifyIdentityFormStyles.textButtonViewStyle}>
             <SmartpriceTextButton label='Resend code' onPress={resendCode} />
           </Text>

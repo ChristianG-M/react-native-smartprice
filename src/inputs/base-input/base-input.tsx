@@ -8,6 +8,7 @@ import {
   View,
   ViewStyle,
   Text,
+  Platform,
 } from 'react-native';
 import { baseInputStyles } from './base-input.styles';
 import '@expo/match-media';
@@ -42,7 +43,13 @@ export const BaseInput = (props: IBaseInputProps): ReactElement => {
     maxLength,
   } = props;
 
-  const onFocus = () => setFocusStyle(baseInputStyles.focusTextStyle);
+  const outlineWidthAvailable =
+    Platform.OS === 'web' ? { outlineWidth: 0 } : {};
+  const onFocus = () =>
+    setFocusStyle({
+      ...baseInputStyles.focusTextStyle,
+      ...outlineWidthAvailable,
+    });
   const onBlur = () => setFocusStyle(baseInputStyles.blurTextStyle);
   const errorStyle: TextStyle = {
     ...baseInputStyles.errorMessageTextStyle,

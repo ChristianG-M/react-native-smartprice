@@ -51,7 +51,7 @@ export const SmartPrice: FunctionComponent<ISmartPriceProps> = ({
   };
 
   const modalSize = () => {
-    return Dimensions.get('window');
+    return Dimensions.get('screen');
   };
 
   const modalStyle = [

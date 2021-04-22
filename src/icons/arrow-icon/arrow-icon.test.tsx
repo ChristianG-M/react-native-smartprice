@@ -24,6 +24,6 @@ describe('arrowIcon', () => {
       <ArrowIcon direction={mockDirection} />
     );
     const icon = testRenderer.root.findByType(Svg);
-    expect(icon.props.transform).toEqual('rotate(-90 0 0)');
+    expect(icon.props.rotation).toEqual(-90);
   });
 });

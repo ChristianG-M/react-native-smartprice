@@ -1,6 +1,7 @@
 // Copyright 2020 Prescryptive Health, Inc.
 import { ViewStyle, TextStyle } from 'react-native';
 import { GreyScale } from '../utils/types/colors';
+import { getReponsiveDimension } from '../utils/types/sizing';
 import { VerticalMobile } from '../utils/types/spacing';
 
 export interface ISmartpriceFooterStyleStyles {
@@ -19,7 +20,7 @@ const centeredRowViewStyle: ViewStyle = {
 
 const footerViewStyle: ViewStyle = {
   flexDirection: 'row',
-  height: '13.0541vh',
+  height: getReponsiveDimension('13.0541vh'),
   marginTop: 'auto',
   justifyContent: 'space-around',
   alignItems: 'flex-start',

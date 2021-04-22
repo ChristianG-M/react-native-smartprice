@@ -22,14 +22,13 @@ export const SmartpriceModalHeader: FunctionComponent<ISmartpriceModalProps> = (
   onBackButtonPressed,
   isBackButtonEnabled,
   viewStyle,
-  currentStep = 1
+  currentStep = 1,
 }): ReactElement => {
   const backButton = isBackButtonEnabled ? (
     <View style={smartpriceModalHeaderStyles.leftIconContainerViewStyle}>
       <SmartPriceIconButton
         onPress={onBackButtonPressed}
-        viewStyle={smartpriceModalHeaderStyles.iconViewStyle}
-      >
+        viewStyle={smartpriceModalHeaderStyles.iconViewStyle}>
         <ArrowIcon direction='left' color={PurpleScale.regular} />
       </SmartPriceIconButton>
     </View>
@@ -44,8 +43,7 @@ export const SmartpriceModalHeader: FunctionComponent<ISmartpriceModalProps> = (
       <View style={smartpriceModalHeaderStyles.rightIconContainerViewStyle}>
         <SmartPriceIconButton
           onPress={onClose}
-          viewStyle={smartpriceModalHeaderStyles.iconViewStyle}
-        >
+          viewStyle={smartpriceModalHeaderStyles.iconViewStyle}>
           <CloseIcon />
         </SmartPriceIconButton>
       </View>

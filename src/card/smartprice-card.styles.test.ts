@@ -2,6 +2,7 @@
 
 import { TextStyle, ViewStyle } from 'react-native';
 import { PurpleScale, GreyScale } from '../utils/types/colors';
+import { getReponsiveDimension } from '../utils/types/sizing';
 import { VerticalMobile } from '../utils/types/spacing';
 import {
   smartpriceCardStyles,
@@ -39,7 +40,7 @@ const headerViewStyle: ViewStyle = {
   borderTopRightRadius: 9,
   height: 48,
   justifyContent: 'center',
-  paddingLeft: '3.9408vh',
+  paddingLeft: getReponsiveDimension('3.9408vh'),
 };
 
 const headerTextStyle: TextStyle = { color: 'white', fontWeight: '700' };

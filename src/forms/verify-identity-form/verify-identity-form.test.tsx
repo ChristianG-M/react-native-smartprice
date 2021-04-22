@@ -50,10 +50,10 @@ describe('VerifyIdentityForm', () => {
     expect(resendCode.props.children.props.style).toEqual(
       verifyIdentityFormStyles.receiveCodeTextStyle
     );
-    expect(resendCode.props.children.props.children[0]).toEqual(
+    expect(resendCode.props.children.props.children[0].trim()).toEqual(
       'Didn’t receive your code?'
     );
-    expect(resendCode.props.children.props.children[1].type).toEqual(Text);
+    expect(resendCode.props.children.props.children[1].type).toBe(Text);
     expect(resendCode.props.children.props.children[1].props.style).toEqual(
       verifyIdentityFormStyles.textButtonViewStyle
     );

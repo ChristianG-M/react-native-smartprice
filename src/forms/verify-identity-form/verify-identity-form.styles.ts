@@ -1,6 +1,7 @@
 // Copyright 2020 Prescryptive Health, Inc.
 import { TextStyle, ViewStyle } from 'react-native';
 import { GreyScale } from '../../utils/types/colors';
+import { getReponsiveDimension } from '../../utils/types/sizing';
 import { VerticalMobile } from '../../utils/types/spacing';
 
 export interface IVerifyIdentityFormStyles {
@@ -23,8 +24,8 @@ export interface IVerifyIdentityFormStyles {
 }
 
 const containerViewStyle: ViewStyle = {
-  height: '90vh',
-  marginTop: '10vh',
+  height: getReponsiveDimension('90vh'),
+  marginTop: getReponsiveDimension('10vh'),
   backgroundColor: 'white',
   borderTopLeftRadius: 8,
   borderTopRightRadius: 8,
@@ -116,9 +117,12 @@ const buttonMarginStyle: ViewStyle = {
   marginBottom: VerticalMobile.Big,
 };
 
-const receiveCodeTextStyle: TextStyle = { fontSize: 16 };
+const receiveCodeTextStyle: TextStyle = {
+  fontSize: 16,
+  height: 27,
+};
 
-const textButtonViewStyle: ViewStyle = { marginLeft: 8 };
+const textButtonViewStyle: ViewStyle = { paddingLeft: 8 };
 
 export const verifyIdentityFormStyles: IVerifyIdentityFormStyles = {
   centeredRowViewStyle,

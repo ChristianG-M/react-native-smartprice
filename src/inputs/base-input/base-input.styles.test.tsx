@@ -26,6 +26,7 @@ const textStyle: TextStyle = {
   fontSize: 16,
   lineHeight: 18,
   height: 48,
+  maxHeight: 48,
   paddingHorizontal: 16,
   paddingVertical: 12,
   borderRadius: 4,
@@ -36,7 +37,6 @@ const textStyle: TextStyle = {
 
 const focusTextStyle = {
   borderColor: BlueScale.regular,
-  outlineWidth: 0,
   backgroundColor: Platform.OS !== 'web' ? GreyScale.medium : GreyScale.light,
 };
 
@@ -49,7 +49,6 @@ const baseInputStylesMock: IBaseInputStyles = {
   errorMessageTextStyle,
   errorTextStyle,
 };
-
 
 describe('baseInputStyles', () => {
   it('has expected default styles', () => {
