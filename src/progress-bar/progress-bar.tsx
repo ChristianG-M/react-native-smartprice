@@ -18,7 +18,7 @@ export const ProgressBar: FunctionComponent<IProgressBarProps> = ({
 
   const progressBarStyle = {
     ...progressBarStyles.barViewStyle,
-    width: stepWidth,
+    width: totalSteps === step ? stepWidth - 48 : stepWidth,
   };
 
   return (
