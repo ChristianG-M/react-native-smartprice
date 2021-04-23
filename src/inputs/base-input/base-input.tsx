@@ -42,7 +42,10 @@ export const BaseInput = (props: IBaseInputProps): ReactElement => {
     maxLength,
   } = props;
 
-  const onFocus = () => setFocusStyle(baseInputStyles.focusTextStyle);
+  const onFocus = () =>
+    setFocusStyle({
+      ...baseInputStyles.focusTextStyle,
+    });
   const onBlur = () => setFocusStyle(baseInputStyles.blurTextStyle);
   const errorStyle: TextStyle = {
     ...baseInputStyles.errorMessageTextStyle,

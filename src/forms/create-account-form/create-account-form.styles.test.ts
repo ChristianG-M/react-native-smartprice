@@ -39,14 +39,15 @@ const requirementsLabelTextStyle: TextStyle = {
 const checkboxMarginStyle: ViewStyle = { marginTop: 0 };
 
 const containerViewStyle: ViewStyle = {
-  // paddingTop: VerticalMobile.Double,
+  paddingTop: VerticalMobile.Small,
 };
 
 const twoColumnInputViewStyle: ViewStyle = { marginRight: 12, width: '48%' };
 
 const formRowViewStyle: ViewStyle = {
   flexDirection: 'row',
-  marginVertical: VerticalMobile.Regular,
+  marginVertical: VerticalMobile.Small,
+  maxHeight: 48,
 };
 
 const twoColumnErrorViewStyle: ViewStyle = { width: '200%' };

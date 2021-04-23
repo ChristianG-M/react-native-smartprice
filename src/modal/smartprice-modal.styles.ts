@@ -1,5 +1,6 @@
 // Copyright 2020 Prescryptive Health, Inc.
 import { ViewStyle } from 'react-native';
+import { getReponsiveDimension } from '../utils/types/sizing';
 
 export interface ISmartpriceModalStyles {
   containerViewStyle: ViewStyle;
@@ -9,8 +10,8 @@ export interface ISmartpriceModalStyles {
 }
 
 const containerViewStyle: ViewStyle = {
-  height: '92.6108vh',
-  marginTop: '7.3891vh',
+  height: getReponsiveDimension('92.6108vh'),
+  marginTop: getReponsiveDimension('7.3891vh'),
   backgroundColor: 'white',
   borderTopLeftRadius: 8,
   borderTopRightRadius: 8,
@@ -18,13 +19,13 @@ const containerViewStyle: ViewStyle = {
 
 const scrollContainerViewStyle: ViewStyle = {
   flex: 1,
-  width: '100vw',
+  width: getReponsiveDimension('100vw'),
   justifyContent: 'flex-start',
   overflow: 'scroll',
 };
 
 const formContainerViewStyle: ViewStyle = {
-  width: '87.2vw',
+  width: getReponsiveDimension('87.2vw'),
   alignSelf: 'center',
 };
 

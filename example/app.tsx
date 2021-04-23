@@ -2,15 +2,13 @@
 
 import React, { ReactElement } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-// import { SmartPrice } from './src/component/index';
+// import { SmartPrice } from './src/';
 import { SmartPrice } from 'react-native-smartprice';
 
 export default function App(): ReactElement {
   return (
     <View style={styles.container}>
-      <Text>
-        Smart<b>PRICE</b> SDK React Native Sample Project
-      </Text>
+      <Text>SmartPRICE™ SDK React Native Sample Project</Text>
       <SmartPrice />
     </View>
   );

@@ -175,7 +175,7 @@ export const CreateAccountForm: FunctionComponent<ISmartPriceModalProps> = ({
             onChangeText={setLastName}
           />
         </View>
-        <View>
+        <View style={{ maxHeight: 48 }}>
           <BaseInput
             placeholder='Email address'
             value={email}

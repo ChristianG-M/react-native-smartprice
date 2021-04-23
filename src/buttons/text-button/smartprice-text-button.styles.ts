@@ -2,6 +2,7 @@
 import { TextStyle, ViewStyle } from 'react-native';
 import { BlueScale } from '../../utils/types/colors';
 import { FontSize, FontWeight } from '../../utils/types/fonts';
+import { getReponsiveDimension } from '../../utils/types/sizing';
 
 export interface ISmartpriceTextButtonStyles {
   containerViewStyle: ViewStyle;
@@ -10,7 +11,7 @@ export interface ISmartpriceTextButtonStyles {
 
 const containerViewStyle: ViewStyle = {
   backgroundColor: 'transparent',
-  height: '5.1724vh',
+  height: getReponsiveDimension('5.1724vh'),
   alignItems: 'center',
   justifyContent: 'center',
 };

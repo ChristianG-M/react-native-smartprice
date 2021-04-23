@@ -30,7 +30,7 @@ import {
   sendVerificationCodeRequest,
 } from '../api/smartprice-api';
 import { PurpleScale } from '../utils/types/colors';
-import { ISmartpriceUserData } from '../../index';
+import { ISmartpriceUserData } from '../index';
 
 export interface ISmartpriceModalProps {
   viewStyle?: StyleProp<ViewStyle>;
@@ -280,8 +280,8 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
 
   const slideIn = () => {
     Animated.timing(slideAnim, {
-      toValue: (7.3891 * deviceHeight) / 100,
-      duration: 300,
+      toValue: 0,
+      duration: 600,
       easing: Easing.exp,
       useNativeDriver: Platform.OS !== 'web' ? true : false,
     }).start();
@@ -290,7 +290,7 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
   const slideOut = () => {
     Animated.timing(slideAnim, {
       toValue: deviceHeight,
-      duration: 400,
+      duration: 600,
       easing: Easing.exp,
       useNativeDriver: Platform.OS !== 'web' ? true : false,
     }).start((anim) => {
@@ -303,7 +303,7 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
   const slideInAnimationStyle = [
     smartpriceModalStyles.containerViewStyle,
     {
-      marginTop: slideAnim,
+      transform: [{ translateY: slideAnim }],
     },
   ];
 

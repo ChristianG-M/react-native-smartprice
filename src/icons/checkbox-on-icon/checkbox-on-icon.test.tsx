@@ -2,13 +2,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { CheckboxOnIcon } from './checkbox-on-icon';
-import Svg from 'react-native-svg';
+import Svg, { Path } from 'react-native-svg';
 
 describe('CheckboxOnIcon', () => {
   it('render component with correct type', () => {
     const testRenderer = renderer.create(<CheckboxOnIcon />);
     const icon = testRenderer.root.findByType(Svg);
-    expect(icon.props.children.type).toEqual('path');
+    expect(icon.props.children.type).toEqual(Path);
   });
 
   it('render component with correct color', () => {

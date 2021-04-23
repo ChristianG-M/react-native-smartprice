@@ -2,13 +2,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import { PrescryptiveBrand } from './prescryptive-brand';
-import Svg from 'react-native-svg';
+import Svg, { Path } from 'react-native-svg';
 
 describe('PrescryptiveBrand', () => {
   it('render component with correct type', () => {
     const testRenderer = renderer.create(<PrescryptiveBrand />);
     const icon = testRenderer.root.findByType(Svg);
-    expect(icon.props.children.type).toEqual('path');
+    expect(icon.props.children.type).toEqual(Path);
   });
 
   it('render component with correct light color', () => {

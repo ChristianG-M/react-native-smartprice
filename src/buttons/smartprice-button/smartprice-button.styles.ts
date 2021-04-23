@@ -2,6 +2,7 @@
 import { TextStyle, ViewStyle } from 'react-native';
 import { GreyScale, PurpleScale } from '../../utils/types/colors';
 import { FontWeight, FontSize } from '../../utils/types/fonts';
+import { getReponsiveDimension } from '../../utils/types/sizing';
 import { BorderRadius } from '../../utils/types/spacing';
 
 export interface ISmartpriceButtonStyles {
@@ -12,7 +13,7 @@ export interface ISmartpriceButtonStyles {
 const containerViewStyle: ViewStyle = {
   backgroundColor: PurpleScale.regular,
   borderRadius: BorderRadius.container,
-  height: '5.9113vh',
+  height: getReponsiveDimension('5.9113vh'),
   alignItems: 'center',
   justifyContent: 'center',
 };

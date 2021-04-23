@@ -1,12 +1,12 @@
 // Copyright 2021 Prescryptive Health, Inc.
 import React, { ReactElement } from 'react';
-import Svg from 'react-native-svg';
+import Svg, { Rect } from 'react-native-svg';
 import { PurpleScale } from '../../utils/types/colors';
 
 export const CheckboxOffIcon = (props: { color?: string }): ReactElement => {
   return (
     <Svg width='24' height='24' viewBox='0 0 24 24' fill='none'>
-      <rect
+      <Rect
         x='0.923077'
         y='0.923077'
         width='22.1538'

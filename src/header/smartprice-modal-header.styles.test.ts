@@ -1,5 +1,6 @@
 // Copyright 2020 Prescryptive Health, Inc.
 import { ViewStyle } from 'react-native';
+import { getReponsiveDimension } from '../utils/types/sizing';
 import { VerticalMobile } from '../utils/types/spacing';
 import {
   smartpriceModalHeaderStyles,
@@ -7,7 +8,7 @@ import {
 } from './smartprice-modal-header.styles';
 
 const headerViewStyle: ViewStyle = {
-  height: '16.3793vh',
+  height: getReponsiveDimension('16.3793vh'),
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
@@ -19,24 +20,24 @@ const headerViewStyle: ViewStyle = {
 const brandContainerStyle: ViewStyle = {
   justifyContent: 'center',
   alignItems: 'center',
-  height: '3.2019vh',
+  height: getReponsiveDimension('3.2019vh'),
   position: 'absolute',
-  top: VerticalMobile.Big
+  top: VerticalMobile.Big,
 };
 
 const rightIconContainerViewStyle: ViewStyle = {
   position: 'absolute',
-  right: '5.33vw',
-  top: VerticalMobile.Big
+  right: getReponsiveDimension('5.33vw'),
+  top: VerticalMobile.Big,
 };
 
 const leftIconContainerViewStyle: ViewStyle = {
   position: 'absolute',
-  left: '6.33vw',
-  top: '4.33vh'
+  left: getReponsiveDimension('6.33vw'),
+  top: getReponsiveDimension('4.33vh'),
 };
 
-const iconViewStyle: ViewStyle = { maxWidth: '6.4vw' };
+const iconViewStyle: ViewStyle = { maxWidth: getReponsiveDimension('6.4vw') };
 
 describe('smartpriceModalHeaderStyles', () => {
   it('has expected default styles', () => {
