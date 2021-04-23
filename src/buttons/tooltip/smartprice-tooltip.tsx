@@ -6,6 +6,7 @@ import {
   ViewStyle,
   Text,
   TouchableHighlight,
+  Platform,
 } from 'react-native';
 import { HelpIcon } from '../../icons/help-icon/help-icon';
 import { SmartPriceIconButton } from '../icon-button/icon-button';
@@ -30,7 +31,10 @@ export const SmartpriceTooltip: FunctionComponent<ISmartpriceTooltipProps> = ({
 
   const tooltipViewStyle: ViewStyle = tooltipVisible
     ? { display: 'flex' }
-    : { display: 'none' };
+    : {
+        display: 'none',
+        position: Platform.OS === 'android' ? 'relative' : 'absolute',
+      };
 
   return (
     <View style={viewStyle}>

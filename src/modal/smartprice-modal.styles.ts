@@ -30,7 +30,7 @@ const formContainerViewStyle: ViewStyle = {
 };
 
 const activityIndicatorViewStyle: ViewStyle = {
-  position: 'absolute',
+  // position: 'absolute', //issues with android
   height: '100%',
   width: '100%',
   alignItems: 'center',

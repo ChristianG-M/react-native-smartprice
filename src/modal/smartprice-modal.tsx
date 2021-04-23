@@ -310,6 +310,12 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
   const activityIndicatorStyle: ViewStyle = {
     ...smartpriceModalStyles.activityIndicatorViewStyle,
     display: isBusy ? 'flex' : 'none',
+    position:
+      Platform.OS === 'android'
+        ? isBusy
+          ? 'absolute'
+          : 'relative'
+        : 'absolute',
   };
 
   useEffect(() => {

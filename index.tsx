@@ -1,6 +1,12 @@
 // Copyright 2021 Prescryptive Health, Inc.
 import React, { FunctionComponent, useState } from 'react';
-import { View, ViewStyle, StyleSheet, Dimensions } from 'react-native';
+import {
+  View,
+  ViewStyle,
+  StyleSheet,
+  Dimensions,
+  Platform,
+} from 'react-native';
 import { SmartpriceButton } from './src/buttons/smartprice-button/smartprice-button';
 import { SmartpriceModal } from './src/modal/smartprice-modal';
 import { smartPriceStyles } from './index.styles';
@@ -30,6 +36,7 @@ export const SmartPrice: FunctionComponent<ISmartPriceProps> = ({
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [position, setPosition] = useState<ViewStyle>();
   const componentRef = React.createRef<View>();
+  const [androidWidth, setAndroidWidth] = useState<number>();
 
   const label = buttonLabel ?? 'Get the SmartPRICE™';
 
@@ -40,21 +47,32 @@ export const SmartPrice: FunctionComponent<ISmartPriceProps> = ({
   const slideScreen = () => {
     if (componentRef.current) {
       componentRef.current.measure((_fx, _fy, _width, _height, px, py) => {
-        setPosition({ left: -px, top: -py });
+        if (px && py) {
+          setPosition({ left: -px, top: -py });
+        }
       });
       setIsOpen(true);
+      setAndroidWidth(modalSize().width);
     }
   };
 
   const closeScreen = () => {
     setIsOpen(false);
+    setAndroidWidth(undefined);
   };
 
   const modalSize = () => {
     return Dimensions.get('screen');
   };
 
-  const modalStyle = [
+  const androidModalStyle: ViewStyle = {
+    ...smartPriceStyles.containerViewStyle,
+    ...visibilityStyle,
+    width: modalSize().width,
+    left: position?.left,
+  };
+
+  const defaultModalStyle = [
     modalSize(),
     StyleSheet.absoluteFillObject,
     smartPriceStyles.containerViewStyle,
@@ -62,8 +80,21 @@ export const SmartPrice: FunctionComponent<ISmartPriceProps> = ({
     visibilityStyle,
   ];
 
+  const modalStyle =
+    Platform.OS === 'android' ? androidModalStyle : defaultModalStyle;
+
+  const androidContainerStyle = androidWidth
+    ? { width: androidWidth }
+    : { width: '100%' };
+
   return (
-    <View ref={componentRef} style={smartPriceStyles.buttonWrapperViewStyle}>
+    <View
+      ref={componentRef}
+      renderToHardwareTextureAndroid={false}
+      style={[
+        smartPriceStyles.buttonWrapperViewStyle,
+        Platform.OS === 'android' ? androidContainerStyle : undefined,
+      ]}>
       <SmartpriceButton onPress={slideScreen} label={label} />
       <SmartpriceModal
         onClose={closeScreen}

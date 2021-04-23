@@ -20,7 +20,10 @@ describe('SmartPrice', () => {
   it('has expected styles', () => {
     const testRenderer = renderer.create(<SmartPrice />);
     const input = testRenderer.root.findAllByType(View, { deep: false })[0];
-    expect(input.props.style).toBe(smartPriceStyles.buttonWrapperViewStyle);
+    expect(input.props.style).toEqual([
+      smartPriceStyles.buttonWrapperViewStyle,
+      undefined,
+    ]);
   });
 
   it('has SmartpriceButton', () => {

@@ -40,7 +40,7 @@ const focusTextStyle = {
   backgroundColor: Platform.OS !== 'web' ? GreyScale.medium : GreyScale.light,
 };
 
-const blurTextStyle = { borderColor: GreyScale.light, outlineWidth: 0 };
+const blurTextStyle = { borderColor: GreyScale.light };
 
 const baseInputStylesMock: IBaseInputStyles = {
   textStyle,
