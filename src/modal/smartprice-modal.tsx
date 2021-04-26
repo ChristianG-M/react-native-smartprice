@@ -307,15 +307,16 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
     },
   ];
 
-  const activityIndicatorStyle: ViewStyle = {
-    ...smartpriceModalStyles.activityIndicatorViewStyle,
-    display: isBusy ? 'flex' : 'none',
-    position:
-      Platform.OS === 'android'
-        ? isBusy
-          ? 'absolute'
-          : 'relative'
-        : 'absolute',
+  const activityIndicatorStyle = () => {
+    if (Platform.OS === 'android') {
+      return isBusy
+        ? smartpriceModalStyles.activityIndicatorStyleAndroidBusy
+        : smartpriceModalStyles.activityIndicatorStyleAndroid;
+    } else {
+      return isBusy
+        ? smartpriceModalStyles.activityIndicatorViewStyleBusy
+        : smartpriceModalStyles.activityIndicatorViewStyle;
+    }
   };
 
   useEffect(() => {
@@ -345,7 +346,7 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
           </View>
           <SmartpriceFooter />
         </View>
-        <View style={activityIndicatorStyle}>
+        <View style={activityIndicatorStyle()}>
           <ActivityIndicator
             hidesWhenStopped={true}
             color={PurpleScale.dark}

@@ -3,10 +3,13 @@ import { ViewStyle } from 'react-native';
 import { getReponsiveDimension } from '../utils/types/sizing';
 
 export interface ISmartpriceModalStyles {
+  activityIndicatorViewStyle: ViewStyle;
+  activityIndicatorStyleAndroid: ViewStyle;
+  activityIndicatorViewStyleBusy: ViewStyle;
+  activityIndicatorStyleAndroidBusy: ViewStyle;
   containerViewStyle: ViewStyle;
   scrollContainerViewStyle: ViewStyle;
   formContainerViewStyle: ViewStyle;
-  activityIndicatorViewStyle: ViewStyle;
 }
 
 const containerViewStyle: ViewStyle = {
@@ -29,8 +32,7 @@ const formContainerViewStyle: ViewStyle = {
   alignSelf: 'center',
 };
 
-const activityIndicatorViewStyle: ViewStyle = {
-  // position: 'absolute', //issues with android
+const activityIndicatorCommonViewStyle: ViewStyle = {
   height: '100%',
   width: '100%',
   alignItems: 'center',
@@ -38,8 +40,33 @@ const activityIndicatorViewStyle: ViewStyle = {
   backgroundColor: '#0c0c0c73',
 };
 
+const activityIndicatorViewStyle: ViewStyle = {
+  ...activityIndicatorCommonViewStyle,
+  display: 'none',
+  position: 'absolute',
+};
+
+const activityIndicatorViewStyleBusy: ViewStyle = {
+  ...activityIndicatorCommonViewStyle,
+  display: 'flex',
+};
+
+const activityIndicatorStyleAndroid: ViewStyle = {
+  ...activityIndicatorCommonViewStyle,
+  position: 'relative',
+  display: 'none',
+};
+const activityIndicatorStyleAndroidBusy: ViewStyle = {
+  ...activityIndicatorCommonViewStyle,
+  position: 'absolute',
+  display: 'flex',
+};
+
 export const smartpriceModalStyles: ISmartpriceModalStyles = {
   activityIndicatorViewStyle,
+  activityIndicatorStyleAndroid,
+  activityIndicatorStyleAndroidBusy,
+  activityIndicatorViewStyleBusy,
   containerViewStyle,
   scrollContainerViewStyle,
   formContainerViewStyle,

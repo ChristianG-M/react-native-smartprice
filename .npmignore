@@ -4,3 +4,4 @@ yarn.lock
 node_modules/
 example/**/*
 example/node_modules
+.idea/

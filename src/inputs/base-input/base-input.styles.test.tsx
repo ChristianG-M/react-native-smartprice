@@ -29,6 +29,7 @@ const textStyle: TextStyle = {
   maxHeight: 48,
   paddingHorizontal: 16,
   paddingVertical: 12,
+  paddingLeft: 12,
   borderRadius: 4,
   backgroundColor: GreyScale.light,
   borderWidth: 2,

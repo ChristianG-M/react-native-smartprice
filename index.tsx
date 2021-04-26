@@ -52,13 +52,17 @@ export const SmartPrice: FunctionComponent<ISmartPriceProps> = ({
         }
       });
       setIsOpen(true);
-      setAndroidWidth(modalSize().width);
+      if (Platform.OS === 'android') {
+        setAndroidWidth(modalSize().width);
+      }
     }
   };
 
   const closeScreen = () => {
     setIsOpen(false);
-    setAndroidWidth(undefined);
+    if (Platform.OS === 'android') {
+      setAndroidWidth(undefined);
+    }
   };
 
   const modalSize = () => {
