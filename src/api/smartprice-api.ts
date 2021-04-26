@@ -74,7 +74,7 @@ export const registerUser = (
         resolve(resp.data);
       })
       .catch((error: IApiResponseError) => {
-        reject(error.response.data.details.errors);
+        reject(error.response.data);
       });
   });
 };
@@ -136,7 +136,7 @@ export const getMemberInformation = (
         resolve(resp.data);
       })
       .catch((error: IApiResponseError) => {
-        reject(error.response.data.details.errors);
+        reject(error.response.data);
       });
   });
 };
@@ -158,7 +158,7 @@ export const getDeviceToken = (
         resolve(resp.data);
       })
       .catch((error: IApiResponseError) => {
-        reject(error.response.data.details.errors);
+        reject(error.response.data);
       });
   });
 };
