@@ -115,6 +115,7 @@ export const PhoneMaskInput = (props: IPhoneMaskInputProps): ReactElement => {
       onChangeText={onChangeHandler}
       placeholder={content.placeholder}
       errorMessage={errorMessage}
+      keyboardType='numeric'
     />
   );
 };

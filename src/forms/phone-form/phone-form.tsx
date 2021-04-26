@@ -119,6 +119,7 @@ export const PhoneForm: FunctionComponent<ISmartPriceModalProps> = ({
         phoneNumber={phoneNumber}
         onPhoneNumberChange={onPhoneNumberChange}
         errorMessage={errorMessage}
+        textStyle={phoneFormStyles.textInputStyle}
       />
 
       {/* <View style={phoneFormStyles.checkboxMarginStyle}>
@@ -144,12 +145,14 @@ export const PhoneForm: FunctionComponent<ISmartPriceModalProps> = ({
       </Text>
 
       <View style={phoneFormStyles.dividerTextStyle} />
-      <View style={phoneFormStyles.textButtonViewStyle}> 
-        <Text style={phoneFormStyles.poweredByText}>Powered by Prescryptive</Text>
+      <View style={phoneFormStyles.textButtonViewStyle}>
+        <Text style={phoneFormStyles.poweredByText}>
+          Powered by Prescryptive
+        </Text>
         <SmartpriceTextButton
-        onPress={learnAbout}
-        label='Learn more.'
-        textStyle={phoneFormStyles.textButtonTextStyle}
+          onPress={learnAbout}
+          label='Learn more.'
+          textStyle={phoneFormStyles.textButtonTextStyle}
         />
       </View>
     </View>

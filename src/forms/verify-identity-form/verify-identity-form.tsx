@@ -53,6 +53,7 @@ export const VerifyIdentityForm: FunctionComponent<IVerifyIdentityFormProps> = (
         value={verificationCode}
         onChangeText={setVerificationCode}
         errorMessage={errorMessage}
+        keyboardType='numeric'
       />
 
       <View style={verifyIdentityFormStyles.buttonMarginStyle}>
