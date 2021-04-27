@@ -18,6 +18,7 @@ import { VerifyIdentityForm } from '../forms/verify-identity-form/verify-identit
 import { CardForm } from '../forms/card-form/card-form';
 import { CreateAccountForm } from '../forms/create-account-form/create-account-form';
 import {
+  BuildTarget,
   getDeviceToken,
   getMemberInformation,
   IApiResponseError,
@@ -40,6 +41,7 @@ export interface ISmartpriceModalProps {
   onFinishFlow?: (memberInfo?: IMemberInformation) => void;
   userData?: ISmartpriceUserData;
   retrieveDeviceToken?: boolean;
+  buildTarget?: BuildTarget;
 }
 
 export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
@@ -49,6 +51,7 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
   onFinishFlow,
   userData,
   retrieveDeviceToken,
+  buildTarget,
 }): React.ReactElement => {
   const deviceHeight = Dimensions.get('screen').height;
 
@@ -77,7 +80,7 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
   const onCreateAccount = (userInfo: IFormData) => {
     setIsBusy(true);
     if (userInfo !== null && deviceToken !== '') {
-      registerAppUser(userInfo, deviceToken)
+      registerAppUser(userInfo, deviceToken, buildTarget)
         ?.then((response: IMemberInfoResponse) => {
           const memberInformation = response.data as IMemberInformation;
           if (memberInformation.memberId !== undefined) {
@@ -106,7 +109,7 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
 
   const onVerificationCodeRequest = (phoneNumber: string) => {
     setIsBusy(true);
-    sendVerificationCodeRequest(phoneNumber)
+    sendVerificationCodeRequest(phoneNumber, buildTarget)
       .then((_) => {
         setIsBusy(false);
         setFlowStep(2);
@@ -123,7 +126,7 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
     setIsBusy(true);
     if (registerPhoneNumber) {
       setVerificationCode(code);
-      getDeviceToken(code, registerPhoneNumber)
+      getDeviceToken(code, registerPhoneNumber, buildTarget)
         .then((response: IDeviceTokenResponse) => {
           if (response.status === 'success') {
             if (!response.data.deviceToken) {
@@ -131,13 +134,13 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
             } else {
               const token = response.data.deviceToken;
               setDeviceToken(token);
-              isRegisteredUser(token)
+              isRegisteredUser(token, buildTarget)
                 .then((r) => {
                   if (!r.data) {
                     setIsBusy(false);
                     setFlowStep(3);
                   } else {
-                    getMemberInformation(token)
+                    getMemberInformation(token, buildTarget)
                       .then((info: IMemberInfoResponse) => {
                         const memberInformation = info.data as IMemberInformation;
                         if (memberInformation.memberId !== undefined) {
@@ -177,13 +180,13 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
   };
 
   const onCheckDeviceToken = (token: string) => {
-    isRegisteredUser(token)
+    isRegisteredUser(token, buildTarget)
       .then((r) => {
         if (!r.data) {
           setIsBusy(false);
           setFlowStep(3);
         } else {
-          getMemberInformation(token)
+          getMemberInformation(token, buildTarget)
             .then((info: IMemberInfoResponse) => {
               const memberInformation = info.data as IMemberInformation;
               if (memberInformation.memberId !== undefined) {
@@ -307,9 +310,16 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
     },
   ];
 
-  const activityIndicatorStyle: ViewStyle = {
-    ...smartpriceModalStyles.activityIndicatorViewStyle,
-    display: isBusy ? 'flex' : 'none',
+  const activityIndicatorStyle = () => {
+    if (Platform.OS === 'android') {
+      return isBusy
+        ? smartpriceModalStyles.activityIndicatorStyleAndroidBusy
+        : smartpriceModalStyles.activityIndicatorStyleAndroid;
+    } else {
+      return isBusy
+        ? smartpriceModalStyles.activityIndicatorViewStyleBusy
+        : smartpriceModalStyles.activityIndicatorViewStyle;
+    }
   };
 
   useEffect(() => {
@@ -339,7 +349,7 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
           </View>
           <SmartpriceFooter />
         </View>
-        <View style={activityIndicatorStyle}>
+        <View style={activityIndicatorStyle()}>
           <ActivityIndicator
             hidesWhenStopped={true}
             color={PurpleScale.dark}

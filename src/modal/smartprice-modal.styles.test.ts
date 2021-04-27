@@ -27,8 +27,7 @@ const formContainerViewStyle: ViewStyle = {
   alignSelf: 'center',
 };
 
-const activityIndicatorViewStyle: ViewStyle = {
-  position: 'absolute',
+const activityIndicatorCommonViewStyle: ViewStyle = {
   height: '100%',
   width: '100%',
   alignItems: 'center',
@@ -36,10 +35,35 @@ const activityIndicatorViewStyle: ViewStyle = {
   backgroundColor: '#0c0c0c73',
 };
 
+const activityIndicatorViewStyle: ViewStyle = {
+  ...activityIndicatorCommonViewStyle,
+  display: 'none',
+  position: 'absolute',
+};
+
+const activityIndicatorViewStyleBusy: ViewStyle = {
+  ...activityIndicatorCommonViewStyle,
+  display: 'flex',
+};
+
+const activityIndicatorStyleAndroid: ViewStyle = {
+  ...activityIndicatorCommonViewStyle,
+  position: 'relative',
+  display: 'none',
+};
+const activityIndicatorStyleAndroidBusy: ViewStyle = {
+  ...activityIndicatorCommonViewStyle,
+  position: 'absolute',
+  display: 'flex',
+};
+
 describe('smartpriceModalStyles', () => {
   it('has expected default styles', () => {
     const mockSmartpriceModalStyles: ISmartpriceModalStyles = {
       activityIndicatorViewStyle,
+      activityIndicatorStyleAndroid,
+      activityIndicatorStyleAndroidBusy,
+      activityIndicatorViewStyleBusy,
       containerViewStyle,
       scrollContainerViewStyle,
       formContainerViewStyle,

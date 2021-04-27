@@ -46,19 +46,19 @@ describe('VerifyIdentityForm', () => {
 
     const resendCode = container.props.children[4];
     expect(resendCode.type).toEqual(View);
-    expect(resendCode.props.children.type).toEqual(Text);
-    expect(resendCode.props.children.props.style).toEqual(
+    expect(resendCode.props.children[1].type).toEqual(Text);
+    expect(resendCode.props.children[1].props.style).toEqual(
       verifyIdentityFormStyles.receiveCodeTextStyle
     );
-    expect(resendCode.props.children.props.children[0].trim()).toEqual(
+    expect(resendCode.props.children[1].props.children[0].trim()).toEqual(
       'Didn’t receive your code?'
     );
-    expect(resendCode.props.children.props.children[1].type).toBe(Text);
-    expect(resendCode.props.children.props.children[1].props.style).toEqual(
+    expect(resendCode.props.children[1].props.children[1].type).toBe(Text);
+    expect(resendCode.props.children[1].props.children[1].props.style).toEqual(
       verifyIdentityFormStyles.textButtonViewStyle
     );
     expect(
-      resendCode.props.children.props.children[1].props.children.type
+      resendCode.props.children[1].props.children[1].props.children.type
     ).toEqual(SmartpriceTextButton);
   });
 

@@ -22,7 +22,7 @@ describe('SmartpriceTooltip', () => {
     const touchableHighlight = testRenderer.root.findByType(TouchableHighlight);
     expect(touchableHighlight.props.style).toEqual([
       smartpriceTooltipStyles.tooltipStyle,
-      { display: 'none' },
+      { display: 'none', position: 'absolute' },
     ]);
 
     expect(touchableHighlight.props.onPress.name).toEqual('hideTooltip');

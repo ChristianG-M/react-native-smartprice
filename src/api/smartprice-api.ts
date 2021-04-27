@@ -3,15 +3,12 @@
 import axios from 'axios';
 import { getDateOfBirth } from '../utils/parsers/date-parser';
 import { getPhoneNumber } from '../utils/parsers/phone-parser';
-import Constants from 'expo-constants';
 
 const API_URL = 'https://myrx.io/api/v1';
 const TEST_API_URL = 'https://test.myrx.io/api/v1';
 
-const buildTarget = Constants.manifest.extra as BuildTarget;
-export interface BuildTarget {
-  target: string;
-}
+export type BuildTarget = 'test' | 'prod';
+
 export interface IApiResponseError {
   response: {
     data: {
@@ -54,7 +51,7 @@ export interface IDeviceTokenResponse {
 
 export const registerUser = (
   form: IFormData,
-  env = buildTarget.target
+  env: BuildTarget = 'prod'
 ): Promise<IMemberInfoResponse> | null => {
   const url = env === 'test' ? TEST_API_URL : API_URL;
   const dob = getDateOfBirth(form.dateOfBirth);
@@ -74,14 +71,14 @@ export const registerUser = (
         resolve(resp.data);
       })
       .catch((error: IApiResponseError) => {
-        reject(error.response.data.details.errors);
+        reject(error.response.data);
       });
   });
 };
 
 export const sendVerificationCodeRequest = (
   phoneNumberRequest: string,
-  env = buildTarget.target
+  env: BuildTarget = 'prod'
 ): Promise<unknown> => {
   const url = env === 'test' ? TEST_API_URL : API_URL;
   const phoneNumber = getPhoneNumber(phoneNumberRequest);
@@ -101,7 +98,7 @@ export const sendVerificationCodeRequest = (
 
 export const isRegisteredUser = (
   deviceToken: string,
-  env = buildTarget.target
+  env: BuildTarget = 'prod'
 ): Promise<IMemberInfoResponse> => {
   const url = env === 'test' ? TEST_API_URL : API_URL;
   return new Promise((resolve, reject) => {
@@ -122,7 +119,7 @@ export const isRegisteredUser = (
 
 export const getMemberInformation = (
   deviceToken: string,
-  env = buildTarget.target
+  env: BuildTarget = 'prod'
 ): Promise<IMemberInfoResponse> => {
   const url = env === 'test' ? TEST_API_URL : API_URL;
   return new Promise((resolve, reject) => {
@@ -136,7 +133,7 @@ export const getMemberInformation = (
         resolve(resp.data);
       })
       .catch((error: IApiResponseError) => {
-        reject(error.response.data.details.errors);
+        reject(error.response.data);
       });
   });
 };
@@ -144,7 +141,7 @@ export const getMemberInformation = (
 export const getDeviceToken = (
   code: string,
   phoneNumber: string,
-  env = buildTarget.target
+  env: BuildTarget = 'prod'
 ): Promise<IDeviceTokenResponse> => {
   const url = env === 'test' ? TEST_API_URL : API_URL;
   const phone = getPhoneNumber(phoneNumber);
@@ -158,7 +155,7 @@ export const getDeviceToken = (
         resolve(resp.data);
       })
       .catch((error: IApiResponseError) => {
-        reject(error.response.data.details.errors);
+        reject(error.response.data);
       });
   });
 };
@@ -166,7 +163,7 @@ export const getDeviceToken = (
 export const registerAppUser = (
   form: IFormData,
   deviceToken: string,
-  env = buildTarget.target
+  env: BuildTarget = 'prod'
 ): Promise<IMemberInfoResponse> | null => {
   const url = env === 'test' ? TEST_API_URL : API_URL;
   const dob = getDateOfBirth(form.dateOfBirth);

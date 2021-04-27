@@ -9,7 +9,7 @@ import {
 } from './create-account-form.styles';
 
 const biggerVerticalMarginStyle: ViewStyle = {
-  marginTop: VerticalMobile.Big,
+  marginTop: VerticalMobile.Medium,
   marginBottom: VerticalMobile.Medium,
 };
 

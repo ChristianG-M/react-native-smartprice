@@ -1,6 +1,6 @@
 // Copyright 2021 Prescryptive Health, Inc.
 import React, { FunctionComponent, useState } from 'react';
-import { Text, View, StyleProp, ViewStyle } from 'react-native';
+import { Text, View, StyleProp, ViewStyle, Platform } from 'react-native';
 import { SmartpriceButton } from '../../buttons/smartprice-button/smartprice-button';
 import { verifyIdentityFormStyles } from './verify-identity-form.styles';
 import { GreyScale, PurpleScale } from '../../utils/types/colors';
@@ -53,6 +53,7 @@ export const VerifyIdentityForm: FunctionComponent<IVerifyIdentityFormProps> = (
         value={verificationCode}
         onChangeText={setVerificationCode}
         errorMessage={errorMessage}
+        keyboardType='numeric'
       />
 
       <View style={verifyIdentityFormStyles.buttonMarginStyle}>
@@ -66,8 +67,11 @@ export const VerifyIdentityForm: FunctionComponent<IVerifyIdentityFormProps> = (
       </View>
 
       <View>
+        {Platform.OS === 'android' ? (
+          <Text>Didn’t receive your code?</Text>
+        ) : undefined}
         <Text style={verifyIdentityFormStyles.receiveCodeTextStyle}>
-          Didn’t receive your code? &nbsp;
+          {Platform.OS !== 'android' ? `Didn’t receive your code? ` : undefined}
           <Text style={verifyIdentityFormStyles.textButtonViewStyle}>
             <SmartpriceTextButton label='Resend code' onPress={resendCode} />
           </Text>

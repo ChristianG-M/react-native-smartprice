@@ -82,14 +82,11 @@ const onFinish = (membershipData) => {
 
 # Configure component for testing environment
 
-As in the example directory you need to set a target variable in your app.config.js in your expo root folder
+As in the example directory you may want to run the component in our testing environment.
+To achieve that only set the buildTarget='test' in the SmartPrice component
 
 ```js
-export default {
-  extra: {
-    target: 'test',
-  },
-};
+<SmartPrice buildTarget='test' />
 ```
 
 The two possible values are 'test' and 'prod'. The default value is 'prod'

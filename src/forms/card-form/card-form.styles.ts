@@ -27,7 +27,7 @@ const paragraphMarginStyle: TextStyle = {
 };
 
 const cardMarginStyle: ViewStyle = {
-  marginBottom: VerticalMobile.Big,
+  marginBottom: VerticalMobile.Regular,
 };
 
 const buttonMarginStyle: ViewStyle = {

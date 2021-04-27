@@ -6,6 +6,7 @@ import { smartPriceStyles, ISmartPriceStyles } from './index.styles';
 const containerViewStyle: ViewStyle = {
   backgroundColor: 'rgba(0,0,0,0.68)',
   zIndex: 1000,
+  elevation: 1000,
 };
 
 const buttonWrapperViewStyle: ViewStyle = { width: '100%' };

@@ -14,6 +14,7 @@ export interface IPhoneFormStyles {
   buttonMarginStyle: ViewStyle;
   requirementsLabelTextStyle: TextStyle;
   poweredByText: TextStyle;
+  textInputStyle: TextStyle;
 }
 
 const linkTextStyle: TextStyle = { color: BlueScale.dark };
@@ -54,7 +55,7 @@ const textButtonTextStyle: TextStyle = {
 const textButtonViewStyle: ViewStyle = {
   alignSelf: 'flex-start',
   marginVertical: VerticalMobile.Big,
-  flexDirection: 'row'
+  flexDirection: 'row',
 };
 
 const dividerTextStyle: TextStyle = {
@@ -65,10 +66,14 @@ const dividerTextStyle: TextStyle = {
 };
 
 const poweredByText: TextStyle = {
-  alignSelf: 'center', 
-  marginRight: 6, 
-  fontSize: 16
-}
+  alignSelf: 'center',
+  marginRight: 6,
+  fontSize: 16,
+};
+
+const textInputStyle: TextStyle = {
+  paddingLeft: 12,
+};
 
 export const phoneFormStyles: IPhoneFormStyles = {
   buttonMarginStyle,
@@ -80,5 +85,6 @@ export const phoneFormStyles: IPhoneFormStyles = {
   titleContainerStyle,
   textButtonViewStyle,
   requirementsLabelTextStyle,
-  poweredByText
+  poweredByText,
+  textInputStyle,
 };

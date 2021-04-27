@@ -29,6 +29,7 @@ const textStyle: TextStyle = {
   maxHeight: 48,
   paddingHorizontal: 16,
   paddingVertical: 12,
+  paddingLeft: 12,
   borderRadius: 4,
   backgroundColor: GreyScale.light,
   borderWidth: 2,
@@ -40,7 +41,7 @@ const focusTextStyle = {
   backgroundColor: Platform.OS !== 'web' ? GreyScale.medium : GreyScale.light,
 };
 
-const blurTextStyle = { borderColor: GreyScale.light, outlineWidth: 0 };
+const blurTextStyle = { borderColor: GreyScale.light };
 
 const baseInputStylesMock: IBaseInputStyles = {
   textStyle,
