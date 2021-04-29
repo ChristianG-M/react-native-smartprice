@@ -22,7 +22,6 @@ describe('SmartPrice', () => {
     const input = testRenderer.root.findAllByType(View, { deep: false })[0];
     expect(input.props.style).toEqual([
       smartPriceStyles.buttonWrapperViewStyle,
-      undefined,
     ]);
   });
 

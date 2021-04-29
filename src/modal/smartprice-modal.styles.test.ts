@@ -8,8 +8,7 @@ import {
 } from './smartprice-modal.styles';
 
 const containerViewStyle: ViewStyle = {
-  height: getReponsiveDimension('92.6108vh'),
-  marginTop: getReponsiveDimension('7.3891vh'),
+  height: getReponsiveDimension('92vh'),
   backgroundColor: 'white',
   borderTopLeftRadius: 8,
   borderTopRightRadius: 8,

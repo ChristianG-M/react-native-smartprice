@@ -9,6 +9,7 @@ import {
   Easing,
   Platform,
   ActivityIndicator,
+  Modal
 } from 'react-native';
 import { smartpriceModalStyles } from './smartprice-modal.styles';
 import { SmartpriceModalHeader } from '../header/smartprice-modal-header';
@@ -307,6 +308,7 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
     smartpriceModalStyles.containerViewStyle,
     {
       transform: [{ translateY: slideAnim }],
+      marginTop: Platform.OS === 'ios' ? 40 : 25
     },
   ];
 
@@ -334,8 +336,10 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
     }
   }, []);
 
+  const modalViewStyle = Platform.OS === 'web' ? [viewStyle, {borderWidth:0,borderColor:'none'}] : {borderWidth:0,borderColor:'none'};
+
   return (
-    <View style={viewStyle}>
+    <Modal visible={isOpen} transparent={true} style={modalViewStyle}>
       <Animated.View style={slideInAnimationStyle}>
         <SmartpriceModalHeader
           isBackButtonEnabled={backButton}
@@ -358,6 +362,6 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
           />
         </View>
       </Animated.View>
-    </View>
+    </Modal>
   );
 };

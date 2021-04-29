@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import renderer, { act } from 'react-test-renderer';
 import { SmartpriceModal } from './smartprice-modal';
 import { smartpriceModalStyles } from './smartprice-modal.styles';
-import { View, Animated } from 'react-native';
+import { View, Animated, Modal } from 'react-native';
 import { IMemberInformation } from '../api/smartprice-api';
 import { SmartpriceModalHeader } from '../header/smartprice-modal-header';
 import { SmartpriceFooter } from '../footer/smartprice-footer';
@@ -80,12 +80,11 @@ describe('SmartpriceModal', () => {
       <SmartpriceModal
         isOpen={true}
         onClose={jest.fn()}
-        viewStyle={{ flex: 1 }}
       />
     );
-    const container = testRenderer.root.findAllByType(View, { deep: false })[0];
-    expect(container.type).toEqual(View);
-    expect(container.props.style).toEqual({ flex: 1 });
+    const container = testRenderer.root.findAllByType(Modal, { deep: false })[0];
+    expect(container.props.style).toEqual({ borderColor: "none",
+    borderWidth: 0, });
 
     const animatedView = container.props.children;
     expect(animatedView.type).toEqual(Animated.View);
@@ -93,6 +92,7 @@ describe('SmartpriceModal', () => {
       smartpriceModalStyles.containerViewStyle,
       {
         transform: [{ translateY: slideAnimMock }],
+        marginTop: 40,
       },
     ]);
     expect(animatedView.props.children[0].type).toEqual(SmartpriceModalHeader);

@@ -10,7 +10,7 @@ import {
 import { SmartpriceButton } from './src/buttons/smartprice-button/smartprice-button';
 import { SmartpriceModal } from './src/modal/smartprice-modal';
 import { smartPriceStyles } from './index.styles';
-import { IMemberInformation } from './src/api/smartprice-api';
+import { BuildTarget, IMemberInformation } from './src/api/smartprice-api';
 
 export interface ISmartpriceUserData {
   firstName?: string;
@@ -25,6 +25,7 @@ export interface ISmartPriceProps {
   onFinishFlow?: (memberInfo?: IMemberInformation) => void;
   userData?: ISmartpriceUserData;
   getDeviceToken?: boolean;
+  buildTarget?: BuildTarget;
 }
 
 export const SmartPrice: FunctionComponent<ISmartPriceProps> = ({
@@ -32,11 +33,11 @@ export const SmartPrice: FunctionComponent<ISmartPriceProps> = ({
   onFinishFlow,
   userData,
   getDeviceToken,
+  buildTarget,
 }): React.ReactElement => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [position, setPosition] = useState<ViewStyle>();
   const componentRef = React.createRef<View>();
-  const [androidWidth, setAndroidWidth] = useState<number>();
 
   const label = buttonLabel ?? 'Get the SmartPRICE™';
 
@@ -52,17 +53,11 @@ export const SmartPrice: FunctionComponent<ISmartPriceProps> = ({
         }
       });
       setIsOpen(true);
-      if (Platform.OS === 'android') {
-        setAndroidWidth(modalSize().width);
-      }
     }
   };
 
   const closeScreen = () => {
     setIsOpen(false);
-    if (Platform.OS === 'android') {
-      setAndroidWidth(undefined);
-    }
   };
 
   const modalSize = () => {
@@ -87,17 +82,12 @@ export const SmartPrice: FunctionComponent<ISmartPriceProps> = ({
   const modalStyle =
     Platform.OS === 'android' ? androidModalStyle : defaultModalStyle;
 
-  const androidContainerStyle = androidWidth
-    ? { width: androidWidth }
-    : { width: '100%' };
-
   return (
     <View
       ref={componentRef}
       renderToHardwareTextureAndroid={false}
       style={[
         smartPriceStyles.buttonWrapperViewStyle,
-        Platform.OS === 'android' ? androidContainerStyle : undefined,
       ]}>
       <SmartpriceButton onPress={slideScreen} label={label} />
       <SmartpriceModal
@@ -107,6 +97,7 @@ export const SmartPrice: FunctionComponent<ISmartPriceProps> = ({
         onFinishFlow={onFinishFlow}
         userData={userData}
         retrieveDeviceToken={getDeviceToken}
+        buildTarget={buildTarget}
       />
     </View>
   );
