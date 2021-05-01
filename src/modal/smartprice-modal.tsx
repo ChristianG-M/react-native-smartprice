@@ -9,7 +9,8 @@ import {
   Easing,
   Platform,
   ActivityIndicator,
-  Modal
+  Modal,
+  Keyboard
 } from 'react-native';
 import { smartpriceModalStyles } from './smartprice-modal.styles';
 import { SmartpriceModalHeader } from '../header/smartprice-modal-header';
@@ -338,9 +339,49 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
 
   const modalViewStyle = Platform.OS === 'web' ? [viewStyle, {borderWidth:0,borderColor:'none'}] : {borderWidth:0,borderColor:'none'};
 
+  const [isKeyboardVisible, setKeyboardVisible] = useState(false);
+
+  useEffect(() => {
+     const keyboardDidShowListener = Keyboard.addListener(
+       'keyboardDidShow',
+       () => {
+         setKeyboardVisible(true);
+       }
+     );
+     const keyboardDidHideListener = Keyboard.addListener(
+       'keyboardDidHide',
+       () => {
+         setKeyboardVisible(false);
+       }
+     );
+ 
+     return () => {
+       keyboardDidHideListener.remove();
+       keyboardDidShowListener.remove();
+     };
+   }, []);
+
+   const onKeyboardMargin = () => {
+    let pageMargin = 0;
+    switch (flowStep){
+      case 1: 
+        pageMargin = -100;
+        break;
+      case 2:
+        pageMargin = -90;
+        break;
+      case 3: 
+        pageMargin = -150;
+        break;
+      default: pageMargin = 0;
+        break;
+    }
+    return isKeyboardVisible ? {marginTop: pageMargin } : undefined
+   }  
+
   return (
     <Modal visible={isOpen} transparent={true} style={modalViewStyle}>
-      <Animated.View style={slideInAnimationStyle}>
+      <Animated.View style={[slideInAnimationStyle, onKeyboardMargin()]}>
         <SmartpriceModalHeader
           isBackButtonEnabled={backButton}
           onClose={onCloseModal}

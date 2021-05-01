@@ -48,6 +48,7 @@ const activityIndicatorViewStyle: ViewStyle = {
 const activityIndicatorViewStyleBusy: ViewStyle = {
   ...activityIndicatorCommonViewStyle,
   display: 'flex',
+  position: 'absolute',
 };
 
 const activityIndicatorStyleAndroid: ViewStyle = {
