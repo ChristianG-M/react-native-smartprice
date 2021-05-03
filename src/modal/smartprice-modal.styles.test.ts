@@ -15,7 +15,7 @@ const containerViewStyle: ViewStyle = {
 };
 
 const scrollContainerViewStyle: ViewStyle = {
-  flex: 1,
+  height: 'auto',
   width: getReponsiveDimension('100vw'),
   justifyContent: 'flex-start',
   overflow: 'scroll',

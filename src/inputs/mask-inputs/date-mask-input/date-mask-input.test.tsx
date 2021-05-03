@@ -61,7 +61,7 @@ describe('DateMaskInput', () => {
     void act(() => {
       input.props.onChangeText(mockNumber);
     });
-    expect(phoneNumber).toEqual(mockNumber);
+    expect(phoneNumber).toEqual('5678-12-34T00:00:00');
   });
 
   it('verify useState default value', () => {
