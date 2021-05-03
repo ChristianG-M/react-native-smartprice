@@ -49,19 +49,19 @@ describe('DateMaskInput', () => {
   );
 
   it('render correct number and gets unmasked value', () => {
-    const mockNumber = '12-34-5678';
-    let phoneNumber = '';
-    const changePhoneNumber = jest.fn((phone: string) => (phoneNumber = phone));
+    const mockDate = '12-34-5678';
+    let dob = '';
+    const changePhoneNumber = jest.fn((phone: string) => (dob = phone));
 
     const testRenderer = renderer.create(
-      <DateMaskInput date={mockNumber} onDateChange={changePhoneNumber} />
+      <DateMaskInput date={mockDate} onDateChange={changePhoneNumber} />
     );
 
     const input = testRenderer.root.findByType(BaseInput);
     void act(() => {
-      input.props.onChangeText(mockNumber);
+      input.props.onChangeText(mockDate);
     });
-    expect(phoneNumber).toEqual('5678-12-34T00:00:00');
+    expect(dob).toEqual('5678-12-34T00:00:00');
   });
 
   it('verify useState default value', () => {
