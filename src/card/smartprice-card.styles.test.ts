@@ -16,6 +16,7 @@ const containerViewStyle: ViewStyle = {
   shadowColor: 'rgb(90, 128, 145)',
   shadowRadius: 20,
   shadowOpacity: 0.5,
+  elevation: 1
 };
 
 const labelTextStyle: TextStyle = {
