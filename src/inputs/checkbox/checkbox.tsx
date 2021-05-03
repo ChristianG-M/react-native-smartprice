@@ -30,9 +30,11 @@ export const Checkbox = ({
     onChange(!checked);
   };
 
+  const iconStyle = {width: 24, height: 24}
+
   return (
     <View style={[styles.containerViewStyle, viewStyle]}>
-      <SmartPriceIconButton onPress={onPress} isDisabled={isDisabled}>
+      <SmartPriceIconButton onPress={onPress} isDisabled={isDisabled} viewStyle={iconStyle}>
         {checked ? <CheckboxOnIcon /> : <CheckboxOffIcon />}
       </SmartPriceIconButton>
       <View style={styles.labelViewStyle}>{label}</View>
