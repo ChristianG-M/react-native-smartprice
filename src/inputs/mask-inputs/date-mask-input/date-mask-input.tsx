@@ -107,8 +107,10 @@ export const DateMaskInput = (props: IDateMaskInputProps): ReactElement => {
     const { unMasked, masked } = extractFromMask(value);
     if (onDateChange) {
       const splited = unMasked.split('');
-      const formattedDate = `${splited[0]}${splited[1]}-${splited[2]}${splited[3]}-${splited[4]}${splited[5]}${splited[6]}${splited[7]}`;
-      onDateChange(formattedDate);
+      if (splited.length === 8){
+        const formattedDate = `${splited[4]}${splited[5]}${splited[6]}${splited[7]}-${splited[0]}${splited[1]}-${splited[2]}${splited[3]}T00:00:00`;
+        onDateChange(formattedDate);
+      }
     }
     setMaskedDateNumber(masked);
   };
@@ -122,6 +124,7 @@ export const DateMaskInput = (props: IDateMaskInputProps): ReactElement => {
       onChangeText={onChangeHandler}
       placeholder={content.placeholder}
       errorMessage={errorMessage}
+      keyboardType='numeric'
     />
   );
 };

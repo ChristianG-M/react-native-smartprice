@@ -19,6 +19,7 @@ const tooltipStyle: ViewStyle = {
   paddingHorizontal: 16,
   position: 'absolute',
   bottom: 35,
+  flex: 1
 };
 
 const paragraphStyle: TextStyle = {
@@ -27,7 +28,7 @@ const paragraphStyle: TextStyle = {
   lineHeight: 20,
 };
 
-const iconButtonViewStyle: ViewStyle = { flexDirection: 'row' };
+const iconButtonViewStyle: ViewStyle = { flexDirection: 'row', flex: 1 };
 
 export const smartpriceTooltipStyles: ISmartpriceTooltipStyles = {
   iconButtonViewStyle,

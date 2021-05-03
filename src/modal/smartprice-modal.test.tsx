@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import renderer, { act } from 'react-test-renderer';
 import { SmartpriceModal } from './smartprice-modal';
 import { smartpriceModalStyles } from './smartprice-modal.styles';
-import { View, Animated } from 'react-native';
+import { View, Animated, Modal, ScrollView, Platform 'react-native';
 import { IMemberInformation } from '../api/smartprice-api';
 import { SmartpriceModalHeader } from '../header/smartprice-modal-header';
 import { SmartpriceFooter } from '../footer/smartprice-footer';
@@ -59,6 +59,7 @@ interface IStateMock {
   token?: string;
   code?: string;
   isBusy?: boolean;
+  isKeyboardVisible?: boolean;
 }
 
 describe('SmartpriceModal', () => {
@@ -80,27 +81,31 @@ describe('SmartpriceModal', () => {
       <SmartpriceModal
         isOpen={true}
         onClose={jest.fn()}
-        viewStyle={{ flex: 1 }}
       />
     );
-    const container = testRenderer.root.findAllByType(View, { deep: false })[0];
-    expect(container.type).toEqual(View);
-    expect(container.props.style).toEqual({ flex: 1 });
+    const container = testRenderer.root.findAllByType(Modal, { deep: false })[0];
+    expect(container.props.style).toEqual({ borderColor: "none",
+    borderWidth: 0, });
 
     const animatedView = container.props.children;
     expect(animatedView.type).toEqual(Animated.View);
     expect(animatedView.props.style).toEqual([
-      smartpriceModalStyles.containerViewStyle,
+      [smartpriceModalStyles.containerViewStyle,
       {
         transform: [{ translateY: slideAnimMock }],
-      },
+        marginTop: Platform.OS === 'ios' ? 40 : 25,
+      }],
+      undefined
     ]);
     expect(animatedView.props.children[0].type).toEqual(SmartpriceModalHeader);
 
     const modalContent = animatedView.props.children[1];
-    expect(modalContent.type).toEqual(View);
-    expect(modalContent.props.style).toEqual(
+    expect(modalContent.type).toEqual(ScrollView);
+    expect(modalContent.props.contentContainerStyle).toEqual(
       smartpriceModalStyles.scrollContainerViewStyle
+    );
+    expect(modalContent.props.style).toEqual(
+      {flex: 1}
     );
 
     const content = modalContent.props.children[0];
@@ -137,7 +142,7 @@ describe('SmartpriceModal', () => {
 
     void act(() => header.props.onClose());
 
-    expect(useEffectMock).toHaveBeenCalledTimes(2);
+    expect(useEffectMock).toHaveBeenCalledTimes(3);
     expect(useEffectMock.mock.calls[0][1]).toEqual([true]);
   });
 
@@ -185,6 +190,7 @@ const setVerificationCodeMock = jest.fn();
 const setVerifyErrorMessageMock = jest.fn();
 const setCurrentErrorMock = jest.fn();
 const setIsBusyMock = jest.fn();
+const setKeyboardVisibleMock = jest.fn();
 
 function stateReset(stateMock: IStateMock) {
   const flowStep = stateMock.flowStep ?? 1;
@@ -201,6 +207,7 @@ function stateReset(stateMock: IStateMock) {
   const errorMessage = stateMock.errorMessage ?? '';
   const currentError = stateMock.currentError ?? '';
   const isBusy = stateMock.isBusy ?? false;
+  const isKeyboardVisible = stateMock.isKeyboardVisible ?? false;
 
   setFlowStepMock.mockReset();
   setRegisterPhoneNumberMock.mockReset();
@@ -210,6 +217,7 @@ function stateReset(stateMock: IStateMock) {
   setVerifyErrorMessageMock.mockReset();
   setCurrentErrorMock.mockReset();
   setIsBusyMock.mockReset();
+  setKeyboardVisibleMock.mockReset();
 
   useStateMock.mockReset();
   useStateMock
@@ -220,5 +228,6 @@ function stateReset(stateMock: IStateMock) {
     .mockReturnValueOnce([code, setVerificationCodeMock])
     .mockReturnValueOnce([errorMessage, setVerifyErrorMessageMock])
     .mockReturnValueOnce([currentError, setCurrentErrorMock])
-    .mockReturnValueOnce([isBusy, setIsBusyMock]);
+    .mockReturnValueOnce([isBusy, setIsBusyMock])
+    .mockReturnValueOnce([isKeyboardVisible, setKeyboardVisibleMock])
 }

@@ -40,13 +40,12 @@ export const CreateAccountForm: FunctionComponent<ISmartPriceModalProps> = ({
   prefilledData,
 }): React.ReactElement => {
   const prefilledEmail = () => {
-    const email = prefilledData?.email;
-    if (!email) {
-      return { valid: false, email: '' };
-    }
+    const emailPrefilled = prefilledData?.email;
+    const isValid = emailPrefilled ? isValidEmail(emailPrefilled) : false
+    const hasEmail = isValid ? emailPrefilled : '';
     return {
-      valid: isValidEmail(email) ?? false,
-      email: isValidEmail(email) ? email : '',
+      valid: isValid,
+      email: hasEmail,
     };
   };
 
@@ -56,11 +55,11 @@ export const CreateAccountForm: FunctionComponent<ISmartPriceModalProps> = ({
   const [lastName, setLastName] = useState<string>(
     prefilledData?.lastName ?? ''
   );
-  const [email, setEmail] = useState<string>(prefilledEmail().email);
+  const [email, setEmail] = useState<string>(prefilledData?.email ?? '');
   const [dateOfBirth, setDateOfBirth] = useState<string>(
     prefilledData?.dateOfBirth?.toLocaleDateString() ?? ''
   );
-  const [validEmail, setValidEmail] = useState<boolean>(prefilledEmail().valid);
+  const [validEmail, setValidEmail] = useState<boolean>(prefilledData?.email ? prefilledEmail().valid : false);
   const [validDob, setValidDob] = useState<boolean>(
     getDateOfBirth(prefilledData?.dateOfBirth?.toLocaleDateString() as string)
       ? true
@@ -98,9 +97,6 @@ export const CreateAccountForm: FunctionComponent<ISmartPriceModalProps> = ({
       setValidDob(false);
     }
   };
-
-  // const isButtonDisabled =
-  //   firstName === '' || lastName === '' || !validEmail || !validDob;
 
   const isButtonDisabled =
     firstName === '' ||

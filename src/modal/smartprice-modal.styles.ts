@@ -13,15 +13,14 @@ export interface ISmartpriceModalStyles {
 }
 
 const containerViewStyle: ViewStyle = {
-  height: getReponsiveDimension('92.6108vh'),
-  marginTop: getReponsiveDimension('7.3891vh'),
+  height: getReponsiveDimension('92vh'),
   backgroundColor: 'white',
   borderTopLeftRadius: 8,
   borderTopRightRadius: 8,
 };
 
 const scrollContainerViewStyle: ViewStyle = {
-  flex: 1,
+  height: 'auto',
   width: getReponsiveDimension('100vw'),
   justifyContent: 'flex-start',
   overflow: 'scroll',
@@ -49,6 +48,7 @@ const activityIndicatorViewStyle: ViewStyle = {
 const activityIndicatorViewStyleBusy: ViewStyle = {
   ...activityIndicatorCommonViewStyle,
   display: 'flex',
+  position: 'absolute',
 };
 
 const activityIndicatorStyleAndroid: ViewStyle = {

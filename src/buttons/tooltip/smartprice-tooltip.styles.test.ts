@@ -18,6 +18,7 @@ const tooltipStyle: ViewStyle = {
   paddingHorizontal: 16,
   position: 'absolute',
   bottom: 35,
+  flex: 1
 };
 
 const paragraphStyle: TextStyle = {
