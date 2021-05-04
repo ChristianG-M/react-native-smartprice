@@ -10,7 +10,7 @@ export interface ISmartpriceFooterStyleStyles {
   footerViewStyle: ViewStyle;
 }
 
-const mediumLinkTextStyle: TextStyle = { fontSize: 14 };
+const mediumLinkTextStyle: TextStyle = { fontSize: 14, fontFamily: 'Roboto' };
 
 const centeredRowViewStyle: ViewStyle = {
   flexDirection: 'row',

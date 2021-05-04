@@ -20,6 +20,7 @@ const labelTextStyle: TextStyle = {
   color: BlueScale.dark,
   fontSize: FontSize.default,
   fontWeight: FontWeight.semibold,
+  fontFamily: 'Roboto'
 };
 
 describe('smartpriceTextButtonStyles', () => {

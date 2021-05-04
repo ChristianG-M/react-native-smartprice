@@ -184,6 +184,7 @@ export const CreateAccountForm: FunctionComponent<ISmartPriceModalProps> = ({
             onDateChange={onDobChange}
             errorMessageStyle={createAccountFormStyles.twoColumnErrorViewStyle}
             viewStyle={createAccountFormStyles.twoColumnInputViewStyle}
+            onSubmitEditing={onNextPressed}
           />
           <BaseInput
             isDisabled={true}

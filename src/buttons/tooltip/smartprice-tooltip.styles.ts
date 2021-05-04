@@ -26,6 +26,7 @@ const paragraphStyle: TextStyle = {
   backgroundColor: 'transparent',
   fontSize: 16,
   lineHeight: 20,
+  fontFamily: 'Roboto'
 };
 
 const iconButtonViewStyle: ViewStyle = { flexDirection: 'row', flex: 1 };

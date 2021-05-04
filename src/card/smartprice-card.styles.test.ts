@@ -22,12 +22,14 @@ const containerViewStyle: ViewStyle = {
 const labelTextStyle: TextStyle = {
   color: GreyScale.dark,
   fontWeight: '700',
+  fontFamily: 'Roboto'
 };
 
 const contentTextStyle: TextStyle = {
   color: GreyScale.black,
   fontWeight: '700',
   fontSize: 16,
+  fontFamily: 'Roboto'
 };
 
 const memberIdTextStyle: TextStyle = {
@@ -44,7 +46,7 @@ const headerViewStyle: ViewStyle = {
   paddingLeft: getReponsiveDimension('3.9408vh'),
 };
 
-const headerTextStyle: TextStyle = { color: 'white', fontWeight: '700' };
+const headerTextStyle: TextStyle = { color: 'white', fontWeight: '700',fontFamily: 'Roboto' };
 
 const dataViewStyle: ViewStyle = { paddingRight: VerticalMobile.Regular };
 

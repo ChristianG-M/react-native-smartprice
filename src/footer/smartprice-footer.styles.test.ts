@@ -9,7 +9,7 @@ import {
   ISmartpriceFooterStyleStyles,
 } from './smartprice-footer.styles';
 
-const mediumLinkTextStyle: TextStyle = { fontSize: 14 };
+const mediumLinkTextStyle: TextStyle = { fontSize: 14, fontFamily: 'Roboto' };
 
 const centeredRowViewStyle: ViewStyle = {
   flexDirection: 'row',

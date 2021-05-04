@@ -22,6 +22,7 @@ const labelTextStyle: TextStyle = {
   color: GreyScale.white,
   fontSize: FontSize.default,
   fontWeight: FontWeight.semibold,
+  fontFamily: 'Roboto'
 };
 
 export const smartpriceButtonStyles: ISmartpriceButtonStyles = {
