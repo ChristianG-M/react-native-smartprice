@@ -15,10 +15,11 @@ export interface IPhoneMaskInputProps {
   onPhoneNumberChange?: (phoneNumber: string) => void;
   textStyle?: TextStyle;
   errorMessage?: string;
+  onSubmitEditing?: () => void;
 }
 
 export const PhoneMaskInput = (props: IPhoneMaskInputProps): ReactElement => {
-  const { phoneNumber, onPhoneNumberChange, textStyle, errorMessage } = props;
+  const { phoneNumber, onPhoneNumberChange, textStyle, errorMessage, onSubmitEditing } = props;
 
   const { content } = useCurrentContent<IPhoneMaskInputContent>(
     phoneMaskInputContent
@@ -116,6 +117,7 @@ export const PhoneMaskInput = (props: IPhoneMaskInputProps): ReactElement => {
       placeholder={content.placeholder}
       errorMessage={errorMessage}
       keyboardType='numeric'
+      onSubmitEditing={onSubmitEditing}
     />
   );
 };

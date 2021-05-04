@@ -120,6 +120,7 @@ export const PhoneForm: FunctionComponent<ISmartPriceModalProps> = ({
         onPhoneNumberChange={onPhoneNumberChange}
         errorMessage={errorMessage}
         textStyle={phoneFormStyles.textInputStyle}
+        onSubmitEditing={onNextPressed}
       />
 
       {/* <View style={phoneFormStyles.checkboxMarginStyle}>

@@ -24,6 +24,7 @@ export interface IBaseInputProps {
   containerStyle?: StyleProp<ViewStyle>;
   secureTextEntry?: boolean;
   maxLength?: number;
+  onSubmitEditing?: () => void;
 }
 
 export const BaseInput = (props: IBaseInputProps): ReactElement => {
@@ -40,6 +41,7 @@ export const BaseInput = (props: IBaseInputProps): ReactElement => {
     containerStyle,
     secureTextEntry,
     maxLength,
+    onSubmitEditing
   } = props;
 
   const onFocus = () =>
@@ -68,6 +70,7 @@ export const BaseInput = (props: IBaseInputProps): ReactElement => {
         onBlur={onBlur}
         secureTextEntry={secureTextEntry}
         maxLength={maxLength}
+        onSubmitEditing={onSubmitEditing}
       />
       {hasError}
     </View>

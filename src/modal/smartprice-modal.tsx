@@ -11,7 +11,7 @@ import {
   ActivityIndicator,
   Modal,
   Keyboard,
-  ScrollView
+  ScrollView,
 } from 'react-native';
 import { smartpriceModalStyles } from './smartprice-modal.styles';
 import { SmartpriceModalHeader } from '../header/smartprice-modal-header';
@@ -35,6 +35,7 @@ import {
 } from '../api/smartprice-api';
 import { PurpleScale } from '../utils/types/colors';
 import { ISmartpriceUserData } from '../index';
+import { getReponsiveDimension } from '../utils/types/sizing';
 
 export interface ISmartpriceModalProps {
   viewStyle?: StyleProp<ViewStyle>;
@@ -225,6 +226,7 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
               onVerificationCodeRequest={onVerificationCodeRequest}
               errorMessage={currentError}
               userNumber={registerPhoneNumber}
+              viewStyle={{minHeight: getReponsiveDimension('60vh')}}
             />
           );
         case 2:
@@ -234,6 +236,7 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
               onSendVerificationCode={onSendVerificationCode}
               resendRequestVerificationCode={onVerificationCodeRequest}
               errorMessage={currentError}
+              viewStyle={{minHeight: getReponsiveDimension('57vh')}}
             />
           );
         case 3:
@@ -245,6 +248,7 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
               onCreateAccount={onCreateAccount}
               verifyErrorMessage={verifyErrorMessage}
               prefilledData={userData}
+              viewStyle={{minHeight: getReponsiveDimension('55vh')}}
             />
           );
         case 4:
@@ -252,6 +256,7 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
             <CardForm
               memberInfo={memberInfo}
               onContinue={onContinueFlowDefined}
+              viewStyle={{minHeight: getReponsiveDimension('57vh')}}
             />
           );
         default:
@@ -339,9 +344,9 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
   }, []);
 
   const modalViewStyle = Platform.OS === 'web' ? [viewStyle, {borderWidth:0,borderColor:'none'}] : {borderWidth:0,borderColor:'none'};
-
+ 
   const [isKeyboardVisible, setKeyboardVisible] = useState(false);
-
+ 
   useEffect(() => {
      const keyboardDidShowListener = Keyboard.addListener(
        'keyboardDidShow',
@@ -373,12 +378,14 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
         break;
       case 3: 
         pageMargin = -150;
-        break;
+      break;
       default: pageMargin = 0;
-        break;
+      break;
     }
     return isKeyboardVisible ? {marginTop: pageMargin } : undefined
    }  
+
+  const isScrollEnabled = flowStep === 3 ? true : false;
 
   return (
     <Modal visible={isOpen} transparent={true} style={modalViewStyle}>
@@ -389,7 +396,12 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
           onBackButtonPressed={onBackButtonPressed}
           currentStep={flowStep}
         />
-        <ScrollView style={{flex: 1}} scrollEnabled={true} contentContainerStyle={smartpriceModalStyles.scrollContainerViewStyle}>
+        <ScrollView 
+          keyboardShouldPersistTaps='always' 
+          keyboardDismissMode='none' 
+          style={{flex: 1}} 
+          scrollEnabled={isScrollEnabled} 
+          contentContainerStyle={smartpriceModalStyles.scrollContainerViewStyle}>
           <View style={smartpriceModalStyles.formContainerViewStyle}>
             {switchForm(flowStep)}
           </View>

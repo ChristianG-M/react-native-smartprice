@@ -1,6 +1,7 @@
 // Copyright 2020 Prescryptive Health, Inc.
 import { ViewStyle, TextStyle } from 'react-native';
 import { GreyScale, PurpleScale } from '../utils/types/colors';
+import { currentFont } from '../utils/types/fonts';
 import { getReponsiveDimension } from '../utils/types/sizing';
 import { VerticalMobile } from '../utils/types/spacing';
 
@@ -30,12 +31,14 @@ const containerViewStyle: ViewStyle = {
 const labelTextStyle: TextStyle = {
   color: GreyScale.dark,
   fontWeight: '700',
+  fontFamily: currentFont()
 };
 
 const contentTextStyle: TextStyle = {
   color: GreyScale.black,
   fontWeight: '700',
   fontSize: 16,
+  fontFamily: currentFont()
 };
 
 const memberIdTextStyle: TextStyle = {
@@ -52,7 +55,7 @@ const headerViewStyle: ViewStyle = {
   paddingLeft: getReponsiveDimension('3.9408vh'),
 };
 
-const headerTextStyle: TextStyle = { color: 'white', fontWeight: '700' };
+const headerTextStyle: TextStyle = { color: 'white', fontWeight: '700', fontFamily: currentFont() };
 
 const dataViewStyle: ViewStyle = { paddingRight: VerticalMobile.Regular };
 

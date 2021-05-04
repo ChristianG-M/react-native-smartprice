@@ -1,6 +1,7 @@
 // Copyright 2020 Prescryptive Health, Inc.
 import { ViewStyle, TextStyle } from 'react-native';
 import { BlueScale } from '../../utils/types/colors';
+import { currentFont } from '../../utils/types/fonts';
 
 export interface ISmartpriceTooltipStyles {
   iconButtonViewStyle: ViewStyle;
@@ -26,6 +27,7 @@ const paragraphStyle: TextStyle = {
   backgroundColor: 'transparent',
   fontSize: 16,
   lineHeight: 20,
+  fontFamily: currentFont()
 };
 
 const iconButtonViewStyle: ViewStyle = { flexDirection: 'row', flex: 1 };

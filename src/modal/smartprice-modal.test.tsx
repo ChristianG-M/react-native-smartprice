@@ -4,7 +4,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import renderer, { act } from 'react-test-renderer';
 import { SmartpriceModal } from './smartprice-modal';
 import { smartpriceModalStyles } from './smartprice-modal.styles';
-import { View, Animated, Modal, ScrollView, Platform 'react-native';
+import { View, Animated, Modal, ScrollView, Platform } from 'react-native';
 import { IMemberInformation } from '../api/smartprice-api';
 import { SmartpriceModalHeader } from '../header/smartprice-modal-header';
 import { SmartpriceFooter } from '../footer/smartprice-footer';

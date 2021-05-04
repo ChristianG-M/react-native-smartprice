@@ -17,6 +17,7 @@ export interface IDateMaskInputProps {
   viewStyle?: ViewStyle;
   errorMessageStyle?: TextStyle;
   errorMessage?: string;
+  onSubmitEditing?: () => void;
 }
 
 export const DateMaskInput = (props: IDateMaskInputProps): ReactElement => {
@@ -27,6 +28,7 @@ export const DateMaskInput = (props: IDateMaskInputProps): ReactElement => {
     errorMessage,
     errorMessageStyle,
     viewStyle,
+    onSubmitEditing
   } = props;
 
   const { content } = useCurrentContent<IDateMaskInputContent>(
@@ -125,6 +127,7 @@ export const DateMaskInput = (props: IDateMaskInputProps): ReactElement => {
       placeholder={content.placeholder}
       errorMessage={errorMessage}
       keyboardType='numeric'
+      onSubmitEditing={onSubmitEditing}
     />
   );
 };
