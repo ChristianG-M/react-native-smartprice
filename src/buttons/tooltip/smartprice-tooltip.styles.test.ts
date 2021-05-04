@@ -2,6 +2,7 @@
 
 import { TextStyle, ViewStyle } from 'react-native';
 import { BlueScale } from '../../utils/types/colors';
+import { currentFont } from '../../utils/types/fonts';
 import {
   smartpriceTooltipStyles,
   ISmartpriceTooltipStyles,
@@ -25,7 +26,7 @@ const paragraphStyle: TextStyle = {
   backgroundColor: 'transparent',
   fontSize: 16,
   lineHeight: 20,
-  fontFamily: 'Roboto'
+  fontFamily: currentFont()
 };
 
 const iconButtonViewStyle: ViewStyle = { flexDirection: 'row', flex: 1 };

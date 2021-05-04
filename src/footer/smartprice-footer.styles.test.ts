@@ -2,6 +2,7 @@
 
 import { TextStyle, ViewStyle } from 'react-native';
 import { GreyScale } from '../utils/types/colors';
+import { currentFont } from '../utils/types/fonts';
 import { getReponsiveDimension } from '../utils/types/sizing';
 import { VerticalMobile } from '../utils/types/spacing';
 import {
@@ -9,7 +10,7 @@ import {
   ISmartpriceFooterStyleStyles,
 } from './smartprice-footer.styles';
 
-const mediumLinkTextStyle: TextStyle = { fontSize: 14, fontFamily: 'Roboto' };
+const mediumLinkTextStyle: TextStyle = { fontSize: 14, fontFamily: currentFont() };
 
 const centeredRowViewStyle: ViewStyle = {
   flexDirection: 'row',

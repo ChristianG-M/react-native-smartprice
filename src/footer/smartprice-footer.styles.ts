@@ -1,6 +1,7 @@
 // Copyright 2020 Prescryptive Health, Inc.
 import { ViewStyle, TextStyle } from 'react-native';
 import { GreyScale } from '../utils/types/colors';
+import { currentFont } from '../utils/types/fonts';
 import { getReponsiveDimension } from '../utils/types/sizing';
 import { VerticalMobile } from '../utils/types/spacing';
 
@@ -10,7 +11,7 @@ export interface ISmartpriceFooterStyleStyles {
   footerViewStyle: ViewStyle;
 }
 
-const mediumLinkTextStyle: TextStyle = { fontSize: 14, fontFamily: 'Roboto' };
+const mediumLinkTextStyle: TextStyle = { fontSize: 14, fontFamily: currentFont() };
 
 const centeredRowViewStyle: ViewStyle = {
   flexDirection: 'row',

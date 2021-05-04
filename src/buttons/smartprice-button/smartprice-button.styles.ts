@@ -1,7 +1,7 @@
 // Copyright 2020 Prescryptive Health, Inc.
 import { TextStyle, ViewStyle } from 'react-native';
 import { GreyScale, PurpleScale } from '../../utils/types/colors';
-import { FontWeight, FontSize } from '../../utils/types/fonts';
+import { FontWeight, FontSize, currentFont } from '../../utils/types/fonts';
 import { getReponsiveDimension } from '../../utils/types/sizing';
 import { BorderRadius } from '../../utils/types/spacing';
 
@@ -22,7 +22,7 @@ const labelTextStyle: TextStyle = {
   color: GreyScale.white,
   fontSize: FontSize.default,
   fontWeight: FontWeight.semibold,
-  fontFamily: 'Roboto'
+  fontFamily: currentFont()
 };
 
 export const smartpriceButtonStyles: ISmartpriceButtonStyles = {
