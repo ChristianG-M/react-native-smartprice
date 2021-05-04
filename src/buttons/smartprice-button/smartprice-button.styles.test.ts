@@ -2,7 +2,7 @@
 
 import { TextStyle, ViewStyle } from 'react-native';
 import { PurpleScale, GreyScale } from '../../utils/types/colors';
-import { FontSize, FontWeight } from '../../utils/types/fonts';
+import { currentFont, FontSize, FontWeight } from '../../utils/types/fonts';
 import { getReponsiveDimension } from '../../utils/types/sizing';
 import { BorderRadius } from '../../utils/types/spacing';
 import {
@@ -22,7 +22,7 @@ const labelTextStyle: TextStyle = {
   color: GreyScale.white,
   fontSize: FontSize.default,
   fontWeight: FontWeight.semibold,
-  fontFamily: 'Roboto'
+  fontFamily: currentFont()
 };
 
 describe('smartpriceButtonStyles', () => {
