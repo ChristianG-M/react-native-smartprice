@@ -28,7 +28,7 @@ const paragraphStyle: TextStyle = {
   fontFamily: 'Roboto'
 };
 
-const iconButtonViewStyle: ViewStyle = { flexDirection: 'row' };
+const iconButtonViewStyle: ViewStyle = { flexDirection: 'row', flex: 1 };
 
 describe('smartpriceTooltipStyles', () => {
   it('has expected default styles', () => {

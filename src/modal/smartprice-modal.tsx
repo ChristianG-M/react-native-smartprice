@@ -11,7 +11,7 @@ import {
   ActivityIndicator,
   Modal,
   Keyboard,
-  ScrollView
+  ScrollView,
 } from 'react-native';
 import { smartpriceModalStyles } from './smartprice-modal.styles';
 import { SmartpriceModalHeader } from '../header/smartprice-modal-header';
@@ -396,7 +396,12 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
           onBackButtonPressed={onBackButtonPressed}
           currentStep={flowStep}
         />
-        <ScrollView keyboardDismissMode='none' style={{flex: 1}} scrollEnabled={isScrollEnabled} contentContainerStyle={smartpriceModalStyles.scrollContainerViewStyle}>
+        <ScrollView 
+          keyboardShouldPersistTaps='always' 
+          keyboardDismissMode='none' 
+          style={{flex: 1}} 
+          scrollEnabled={isScrollEnabled} 
+          contentContainerStyle={smartpriceModalStyles.scrollContainerViewStyle}>
           <View style={smartpriceModalStyles.formContainerViewStyle}>
             {switchForm(flowStep)}
           </View>
