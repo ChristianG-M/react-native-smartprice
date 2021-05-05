@@ -270,9 +270,8 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
   const onContinueFlowDefined = (memberInfo?: IMemberInformation) => {
     if (onFinishFlow) {
       onFinishFlow(memberInfo);
-    } else {
-      onCloseModal();
     }
+    onCloseModal();
   };
 
   const backButton = flowStep > 1 && flowStep < 4;
