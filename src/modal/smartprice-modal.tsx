@@ -270,6 +270,7 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
   const onContinueFlowDefined = (memberInfo?: IMemberInformation) => {
     if (onFinishFlow) {
       onFinishFlow(memberInfo);
+      onCloseModal();
     } else {
       onCloseModal();
     }
