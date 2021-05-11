@@ -80,6 +80,15 @@ const onFinish = (membershipData) => {
 
 ---
 
+# Configure your broker source identifier
+
+Each Prescryptive partner has a broker identifier which you can pass as a prop
+to the SmartPrice component
+
+```js
+<SmartPrice source='yourbrokerid' />
+```
+
 # Configure component for testing environment
 
 As in the example directory you may want to run the component in our testing environment.

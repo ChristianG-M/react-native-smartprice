@@ -51,7 +51,8 @@ export interface IDeviceTokenResponse {
 
 export const registerUser = (
   form: IFormData,
-  env: BuildTarget = 'prod'
+  env: BuildTarget = 'prod',
+  source?: string
 ): Promise<IMemberInfoResponse> | null => {
   const url = env === 'test' ? TEST_API_URL : API_URL;
   const dob = getDateOfBirth(form.dateOfBirth);
@@ -66,6 +67,7 @@ export const registerUser = (
         dateOfBirth: dob,
         phoneNumber: phone,
         verifyCode: form.verifyCode,
+        source
       })
       .then((resp) => {
         resolve(resp.data);
@@ -163,7 +165,8 @@ export const getDeviceToken = (
 export const registerAppUser = (
   form: IFormData,
   deviceToken: string,
-  env: BuildTarget = 'prod'
+  env: BuildTarget = 'prod',
+  source?: string
 ): Promise<IMemberInfoResponse> | null => {
   const url = env === 'test' ? TEST_API_URL : API_URL;
   const dob = getDateOfBirth(form.dateOfBirth);
@@ -179,6 +182,7 @@ export const registerAppUser = (
           email: form.email,
           dateOfBirth: dob,
           phoneNumber: phone,
+          source
         },
         {
           headers: {
