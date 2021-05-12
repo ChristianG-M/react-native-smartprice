@@ -10,7 +10,7 @@ export default function App(): ReactElement {
     <View style={styles.container}>
       <Text>SmartPRICE™ SDK React Native Sample Project</Text>
       <View style={{ width: 285 }}>
-        <SmartPrice buildTarget='test' />
+        <SmartPrice buildTarget='test' source='brokerId' />
       </View>
     </View>
   );

@@ -26,6 +26,7 @@ export interface ISmartPriceProps {
   userData?: ISmartpriceUserData;
   getDeviceToken?: boolean;
   buildTarget?: BuildTarget;
+  source?: string;
 }
 
 export const SmartPrice: FunctionComponent<ISmartPriceProps> = ({
@@ -34,6 +35,7 @@ export const SmartPrice: FunctionComponent<ISmartPriceProps> = ({
   userData,
   getDeviceToken,
   buildTarget,
+  source
 }): React.ReactElement => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [position, setPosition] = useState<ViewStyle>();
@@ -98,6 +100,7 @@ export const SmartPrice: FunctionComponent<ISmartPriceProps> = ({
         userData={userData}
         retrieveDeviceToken={getDeviceToken}
         buildTarget={buildTarget}
+        source={source}
       />
     </View>
   );

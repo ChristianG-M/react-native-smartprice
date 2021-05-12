@@ -46,6 +46,7 @@ export interface ISmartpriceModalProps {
   userData?: ISmartpriceUserData;
   retrieveDeviceToken?: boolean;
   buildTarget?: BuildTarget;
+  source?: string;
 }
 
 export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
@@ -56,6 +57,7 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
   userData,
   retrieveDeviceToken,
   buildTarget,
+  source
 }): React.ReactElement => {
   const deviceHeight = Dimensions.get('screen').height;
 
@@ -84,7 +86,7 @@ export const SmartpriceModal: FunctionComponent<ISmartpriceModalProps> = ({
   const onCreateAccount = (userInfo: IFormData) => {
     setIsBusy(true);
     if (userInfo !== null && deviceToken !== '') {
-      registerAppUser(userInfo, deviceToken, buildTarget)
+      registerAppUser(userInfo, deviceToken, buildTarget, source)
         ?.then((response: IMemberInfoResponse) => {
           const memberInformation = response.data as IMemberInformation;
           if (memberInformation.memberId !== undefined) {
