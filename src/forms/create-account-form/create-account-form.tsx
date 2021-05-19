@@ -17,9 +17,10 @@ import { BaseInput } from '../../inputs/base-input/base-input';
 import { IFormData } from '../../api/smartprice-api';
 import { DateMaskInput } from '../../inputs/mask-inputs/date-mask-input/date-mask-input';
 import { isValidEmail } from '../../utils/validators/email.validator/email.validator';
-import { getDateOfBirth } from '../../utils/parsers/date-parser';
+import { DobError, getDateOfBirth } from '../../utils/parsers/date-parser';
 import { ISmartpriceUserData } from '../../../index';
 import { Checkbox } from '../../inputs/checkbox/checkbox';
+import { VerticalMobile } from '../../utils/types/spacing';
 
 export interface ISmartPriceModalProps {
   viewStyle?: StyleProp<ViewStyle>;
@@ -70,6 +71,8 @@ export const CreateAccountForm: FunctionComponent<ISmartPriceModalProps> = ({
     false
   );
 
+  const [dobError, setDobError] = useState<string>('');
+
   const onNextPressed = () => {
     if (onCreateAccount) {
       onCreateAccount({
@@ -91,8 +94,15 @@ export const CreateAccountForm: FunctionComponent<ISmartPriceModalProps> = ({
 
   const onDobChange = (value: string) => {
     setDateOfBirth(value);
-    if (getDateOfBirth(value) !== null) {
-      setValidDob(true);
+    const getDob = getDateOfBirth(value);
+    if (getDob !== null) {
+      if ((getDob as DobError).error){
+        setValidDob(false);
+        setDobError((getDob as DobError).error);
+      } else {
+        setValidDob(true);
+        setDobError('');
+      }
     } else {
       setValidDob(false);
     }
@@ -178,13 +188,14 @@ export const CreateAccountForm: FunctionComponent<ISmartPriceModalProps> = ({
             onChangeText={onEmailChange}
           />
         </View>
-        <View style={createAccountFormStyles.formRowViewStyle}>
+        <View style={[createAccountFormStyles.formRowViewStyle, dobError ? {marginBottom: VerticalMobile.Big } : {}]}>
           <DateMaskInput
             date={dateOfBirth}
             onDateChange={onDobChange}
             errorMessageStyle={createAccountFormStyles.twoColumnErrorViewStyle}
             viewStyle={createAccountFormStyles.twoColumnInputViewStyle}
             onSubmitEditing={onNextPressed}
+            errorMessage={dobError}
           />
           <BaseInput
             isDisabled={true}
