@@ -105,6 +105,7 @@ export const CreateAccountForm: FunctionComponent<ISmartPriceModalProps> = ({
       }
     } else {
       setValidDob(false);
+      setDobError('Enter a valid date (MM/DD/YYYY)');
     }
   };
 

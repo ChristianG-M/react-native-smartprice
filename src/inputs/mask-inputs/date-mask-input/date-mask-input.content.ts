@@ -8,7 +8,7 @@ export interface IDateMaskInputContent {
 }
 
 const defaultContent: IDateMaskInputContent = {
-  placeholder: 'Date of birth (MM-DD-YYYY)',
+  placeholder: 'Date of birth (MM/DD/YYYY)',
 };
 
 export const dateMaskInputContent: IContentMap<IDateMaskInputContent> = {
