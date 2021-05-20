@@ -43,7 +43,7 @@ describe('CardForm', () => {
 
     const rowContainer = formContainer.props.children[2];
     expect(rowContainer.props.style).toBe(
-      createAccountFormStyles.formRowViewStyle
+      [createAccountFormStyles.formRowViewStyle, {}]
     );
     const dateMask = rowContainer.props.children[0];
     expect(dateMask.props.errorMessageStyle).toBe(
